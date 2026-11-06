@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { ArrowUpRight, Check, ChevronDown, MapPin, Menu, MessageCircle, MoveRight, Phone, Route, ShieldCheck, Sparkles, X } from 'lucide-react'
 
-const imageUrl = 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image.png-8MjAsLOKlvShJBGQXMj4WoWHKseFvh.jpeg'
+const imageUrl = '/auto.webp'
 
 const services = [
   { number: '01', title: 'Back panel ads', copy: 'The everyday billboard behind every commute. Sharp, affordable and built for instant recall.', tag: 'From ₹150 / auto', accent: 'yellow' },
@@ -36,7 +36,7 @@ export default function Page() {
       <section id="top" className="hero section-pad">
         <div className="hero-copy">
           <div className="eyebrow"><span className="eyebrow-line" /> AUTO RICKSHAW ADVERTISING IN PATNA</div>
-          <h1>Put your brand<br /><em>on every route.</em></h1>
+          <h1>PUT YOUR BRAND<br /><em>ON EVERY ROUTE.</em></h1>
           <p className="hindi">हर सड़क पर आपका ब्रांड।</p>
           <p className="hero-text">Turn Patna&apos;s everyday streets into moving advertising opportunities. One campaign, hundreds of moving billboards — right where your customers are.</p>
           <div className="hero-actions"><a href="#quote" className="button button-dark">Get a free quote <MoveRight size={18} /></a><a href="#services" className="text-link">Explore formats <ArrowUpRight size={16} /></a></div>
@@ -48,6 +48,21 @@ export default function Page() {
           <div className="route-line" aria-hidden="true" />
         </div>
       </section>
+
+      <div className="marquee-strip" aria-hidden="true">
+        <div className="marquee-track">
+          {Array.from({ length: 2 }).map((_, i) => (
+            <div className="marquee-set" key={i}>
+              <span>PUT YOUR BRAND ON EVERY ROUTE</span><Route size={16} />
+              <span>BACK PANEL ADS</span><Route size={16} />
+              <span>HOOD BRANDING</span><Route size={16} />
+              <span>E-RICKSHAW ADS</span><Route size={16} />
+              <span>500+ AUTOS ON THE ROAD</span><Route size={16} />
+              <span>PATNA&apos;S MOVING MEDIA NETWORK</span><Route size={16} />
+            </div>
+          ))}
+        </div>
+      </div>
 
       <section className="stats-band"><div><strong>500+</strong><span>autos on the road</span></div><div><strong>6</strong><span>high-impact zones</span></div><div><strong>24/7</strong><span>everyday visibility</span></div><div><strong>01</strong><span>simple campaign partner</span></div></section>
 
