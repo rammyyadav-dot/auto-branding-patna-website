@@ -27,7 +27,7 @@ export default function Page() {
       <header className="nav-wrap">
         <a className="brand" href="#top" aria-label="Auto Branding Patna home"><span className="brand-mark">AB</span><span>AUTO BRANDING <b>PATNA</b></span></a>
         <nav className={menuOpen ? 'nav-links open' : 'nav-links'} aria-label="Main navigation">
-          <a href="#services" onClick={() => setMenuOpen(false)}>Services</a><a href="#calculator" onClick={() => setMenuOpen(false)}>Rates</a><a href="#routes" onClick={() => setMenuOpen(false)}>Routes</a><a href="#work" onClick={() => setMenuOpen(false)}>Our work</a>
+          <a href="#services" onClick={() => setMenuOpen(false)}>Services</a><a href="#calculator" onClick={() => setMenuOpen(false)}>Rates</a><a href="#routes" onClick={() => setMenuOpen(false)}>Routes</a><a href="/blog" onClick={() => setMenuOpen(false)}>Journal</a><a href="#work" onClick={() => setMenuOpen(false)}>Our work</a>
           <a className="nav-cta" href="#quote" onClick={() => setMenuOpen(false)}>Get a free quote <ArrowUpRight size={16} /></a>
         </nav>
         <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close menu' : 'Open menu'}>{menuOpen ? <X /> : <Menu />}</button>
