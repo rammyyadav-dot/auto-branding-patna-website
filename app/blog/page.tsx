@@ -1,5 +1,12 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { ArrowUpRight, Clock3, MapPin, MoveRight } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Auto Branding Patna Journal: Auto Rickshaw Advertising Guides & Routes',
+  description: 'Practical guides on auto rickshaw advertising in Patna — campaign costs, back panel vs hood branding, the best routes for coaching, retail and healthcare brands, and creative that gets read.',
+  alternates: { canonical: '/blog' },
+}
 
 const posts = [
   { category: 'Patna advertising', date: '12 min read', title: 'Auto Rickshaw Advertising in Patna: A Practical Guide for Growing Brands', excerpt: 'How local businesses can turn everyday routes into repeated, high-recall brand moments across Bihar’s capital.', featured: true },
