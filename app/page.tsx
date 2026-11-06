@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { ArrowUpRight, Check, ChevronDown, MapPin, Menu, MessageCircle, MoveRight, Phone, Route, ShieldCheck, Sparkles, X } from 'lucide-react'
 
-const imageUrl = 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image.png-8MjAsLOKlvShJBGQXMj4WoWHKseFvh.jpeg'
+const imageUrl = '/auto.webp'
 
 const services = [
   { number: '01', title: 'Back panel ads', copy: 'The everyday billboard behind every commute. Sharp, affordable and built for instant recall.', tag: 'From ₹150 / auto', accent: 'yellow' },
