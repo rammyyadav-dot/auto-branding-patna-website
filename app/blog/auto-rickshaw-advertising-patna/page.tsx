@@ -1,3 +1,4 @@
+import { SiteFooter } from '@/components/site-footer'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { ArrowUpRight, Clock3, MapPin, MoveRight, Phone, MessageCircle } from 'lucide-react'
@@ -165,7 +166,7 @@ export default function AutoRickshawAdvertisingPatnaPost() {
         <Link className="text-link" href="/blog">Back to the journal <MoveRight size={16} /></Link>
       </article>
 
-      <footer className="footer"><div className="footer-top"><div><Link className="brand footer-brand" href="/"><span className="brand-mark">AB</span><span>AUTO BRANDING <b>PATNA</b></span></Link><p>Patna&apos;s specialist auto rickshaw advertising and transit branding partner.</p></div><div className="footer-links"><div><b>Explore</b><Link href="/#services">Services</Link><Link href="/blog">Journal</Link><Link href="/contact#campaign-brief">Request a quote</Link></div><div><b>Contact</b><a href="tel:+919172712982">+91 91727 12982</a><a href="mailto:hello@autobrandingpatna.in">Email us</a></div></div></div><div className="footer-bottom"><span>© 2026 Auto Branding Patna</span><span>Made for the moving city</span></div></footer>
+      <SiteFooter />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org',

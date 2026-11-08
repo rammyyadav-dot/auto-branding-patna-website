@@ -1,3 +1,4 @@
+import { SiteFooter } from '@/components/site-footer'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -38,7 +39,7 @@ export default function AboutPage() {
       </section>
       <section className="section-pad about-team" aria-labelledby="team-heading"><div className="section-intro"><div><div className="eyebrow"><span className="eyebrow-line" /> OUR PEOPLE</div><h2 id="team-heading">A small team.<br /><span>A shared commitment.</span></h2></div><p>Our team of five MBA professionals brings sales and marketing expertise to every brief, connecting brand strategy with the practical needs of growing businesses.</p></div><ul className="about-expertise" aria-label="Team expertise"><li><span>01</span> Brand strategy</li><li><span>02</span> Sales &amp; market understanding</li><li><span>03</span> Campaign coordination</li></ul></section>
       <section className="quote-section section-pad"><div><div className="eyebrow"><span className="eyebrow-line" /> YOUR NEXT CAMPAIGN STARTS HERE</div><h2>Let’s move your<br /><em>brand forward.</em></h2><p>Tell us about your brand and the customers you want to reach.</p></div><Link className="button button-dark" href="/contact#campaign-brief">Talk to our team <ArrowUpRight size={18} /></Link></section>
-      <footer className="footer"><div className="footer-top"><div><Link className="brand footer-brand" href="/"><span className="brand-mark">AB</span><span>AUTO BRANDING <b>PATNA</b></span></Link><p>Patna&apos;s specialist auto rickshaw advertising and transit branding partner.</p></div><div className="footer-links"><div><b>Explore</b><Link href="/#services">Services</Link><Link href="/about">About us</Link><Link href="/blog">Journal</Link></div><div><b>Contact</b><a href="tel:+919172712982">+91 91727 12982</a><Link href="/contact#campaign-brief">Request a quote</Link></div></div></div><div className="footer-bottom"><span>© 2026 Auto Branding Patna</span><span>Made for the moving city</span></div></footer>
+      <SiteFooter />
     </main>
   )
 }
