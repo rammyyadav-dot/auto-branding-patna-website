@@ -1,0 +1,15 @@
+import Link from 'next/link'
+import { ArrowUpRight, Route } from 'lucide-react'
+
+export function SiteFooter() {
+  return <footer className="footer seo-footer">
+    <div className="seo-footer-intro"><div><span className="eyebrow">LOCAL ROUTES. LASTING RECALL.</span><h2>Your brand.<br /><em>On the move.</em></h2></div><Link className="button button-yellow" href="/contact#campaign-brief">Plan your campaign <ArrowUpRight size={17} /></Link></div>
+    <div className="seo-footer-grid">
+      <div><Link className="brand footer-brand" href="/" aria-label="Auto Branding Patna home"><span className="brand-mark">AB</span><span>AUTO BRANDING <b>PATNA</b></span></Link><p>Auto rickshaw advertising in Patna, built around your audience. Explore hood branding, rear-panel sticker ads and e-rickshaw (Toto) campaigns for coaching institutes, healthcare, retail and real estate.</p><p className="seo-footer-tagline">Moving billboards. Neighbourhood connections.</p><Link href="/about">Meet our team <ArrowUpRight size={13} /></Link></div>
+      <nav aria-label="Footer advertising services"><h3>Formats &amp; campaign costs</h3><Link href="/services/auto-rickshaw-advertising-patna">Auto rickshaw advertising</Link><Link href="/services/auto-hood-branding-patna">Auto hood branding &amp; printing</Link><Link href="/services/auto-back-panel-advertising-patna">Back-panel &amp; rear sticker ads</Link><Link href="/services">E-rickshaw &amp; Toto campaign enquiries</Link><Link href="/rates">Per-auto monthly rates &amp; packages</Link><Link href="/blog/auto-rickshaw-advertising-patna">Creative, materials &amp; campaign planning</Link></nav>
+      <nav aria-label="Footer Patna campaign locations"><h3>Patna routes. Bihar enquiries.</h3><Link href="/locations/boring-road">Boring Road auto branding</Link><Link href="/locations/bailey-road">Bailey Road advertising routes</Link><Link href="/locations/kankarbagh">Kankarbagh local campaigns</Link><Link href="/locations/patna-junction">Patna Junction transit advertising</Link><Link href="/locations">Rajendra Nagar &amp; Danapur routes</Link><Link href="/contact#campaign-brief">Discuss a campaign across Bihar</Link><p>Planning Muzaffarpur, Gaya, Bhagalpur, Darbhanga or Purnia? Ask about local fleet availability, formats and execution before booking.</p></nav>
+      <div lang="hi"><h3>पटना में ऑटो से अपने ब्रांड का प्रचार करें।</h3><p>ऑटो हुड ब्रांडिंग, बैक-पैनल विज्ञापन और ई-रिक्शा प्रचार के लिए अपनी ज़रूरत बताइए। अपने बजट, इलाके और अभियान की अवधि के अनुसार रेट और विकल्प जानिए।</p><p className="seo-footer-hindi">आपका ब्रांड। पटना की सड़कों पर।</p><div lang="en"><a href="tel:+919172712982">+91 91727 12982</a><a href="mailto:hello@autobrandingpatna.in">hello@autobrandingpatna.in</a><Link href="/contact">Contact us <ArrowUpRight size={13} /></Link><span className="seo-footer-location">Patna, Bihar, India</span></div></div>
+    </div>
+    <div className="footer-bottom"><span>© {new Date().getFullYear()} Auto Branding Patna</span><span>Formats, fleet availability and final costs confirmed in your proposal.</span><span>Made for the moving city <Route size={14} /></span></div>
+  </footer>
+}
