@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight, MoveRight } from 'lucide-react'
+import { SiteHeader } from '@/components/site-header'
 
 export const metadata: Metadata = {
   title: 'About Us | Ram Kumar & the Auto Branding Patna Team',
@@ -18,11 +19,7 @@ const approach = [
 export default function AboutPage() {
   return (
     <main className="site-shell about-shell">
-      <div className="top-strip"><span>Patna&apos;s moving media network</span><span className="top-dot" /><span>The people behind the motion</span><a href="tel:+919172712982">Call +91 91727 12982</a></div>
-      <header className="nav-wrap">
-        <Link className="brand" href="/"><span className="brand-mark">AB</span><span>AUTO BRANDING <b>PATNA</b></span></Link>
-        <nav className="about-nav" aria-label="Main navigation"><Link href="/#services">Services</Link><Link href="/about" aria-current="page">About us</Link><Link href="/blog">Journal</Link><Link className="nav-cta" href="/#quote">Get a free quote <ArrowUpRight size={16} /></Link></nav>
-      </header>
+      <SiteHeader />
       <section className="about-hero section-pad">
         <div className="eyebrow"><span className="eyebrow-line" /> ABOUT AUTO BRANDING PATNA</div>
         <h1>Global perspective.<br /><em>Local momentum.</em></h1>

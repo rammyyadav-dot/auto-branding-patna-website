@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { ArrowUpRight, Clock3, MapPin, MoveRight, Phone, MessageCircle } from 'lucide-react'
+import { SiteHeader } from '@/components/site-header'
 
 export const metadata: Metadata = {
   title: 'Auto Rickshaw Advertising in Patna (2026 Guide): Cost, Routes & ROI | Auto Branding Patna',
@@ -50,11 +51,7 @@ const faqs = [
 export default function AutoRickshawAdvertisingPatnaPost() {
   return (
     <main className="blog-shell">
-      <div className="top-strip"><span>Patna&apos;s moving media network</span><span className="top-dot" /><span>Ideas for brands on the move</span><a href="tel:+919172712982">Call +91 91727 12982</a></div>
-      <header className="nav-wrap">
-        <Link className="brand" href="/"><span className="brand-mark">AB</span><span>AUTO BRANDING <b>PATNA</b></span></Link>
-        <nav className="nav-links"><Link href="/#services">Services</Link><Link href="/#calculator">Rates</Link><Link href="/blog">Journal</Link><Link className="nav-cta" href="/#quote">Get a free quote <ArrowUpRight size={16} /></Link></nav>
-      </header>
+      <SiteHeader />
 
       <article className="post-article section-pad">
         <div className="post-article-head">
