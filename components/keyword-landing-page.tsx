@@ -1,0 +1,91 @@
+import Link from 'next/link'
+import { ArrowUpRight, Check, MessageCircle } from 'lucide-react'
+import { AgencyHeader } from '@/components/agency-header'
+import { SiteFooter } from '@/components/site-footer'
+import { clusterMeta, type BuiltKeywordPage } from '@/lib/keyword-pages'
+import { site } from '@/lib/site'
+
+export function KeywordLandingPage({ page }: { page: BuiltKeywordPage }) {
+  const hi = page.lang === 'hi'
+  const url = `${site.url}/advertising/${page.s}`
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Service',
+        '@id': `${url}#service`,
+        name: page.h,
+        serviceType: page.k,
+        description: page.d,
+        inLanguage: hi ? 'hi-IN' : 'en-IN',
+        areaServed: page.c === 'bihar' || page.place?.includes('Bihar') ? { '@type': 'State', name: 'Bihar' } : { '@type': 'City', name: 'Patna' },
+        provider: { '@type': 'LocalBusiness', name: site.name, telephone: site.phone, email: site.email, url: site.url, address: { '@type': 'PostalAddress', addressLocality: 'Patna', addressRegion: 'Bihar', addressCountry: 'IN' } },
+        url,
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+          { '@type': 'ListItem', position: 2, name: 'Advertising', item: `${site.url}/advertising` },
+          { '@type': 'ListItem', position: 3, name: page.h, item: url },
+        ],
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: page.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+      },
+    ],
+  }
+
+  return (
+    <main className="seo-page kw-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
+      <AgencyHeader />
+      <div lang={page.lang}>
+        <nav className="kw-crumbs section-pad" aria-label="Breadcrumb">
+          <Link href="/">Home</Link><span>/</span><Link href="/advertising">Advertising</Link><span>/</span><span aria-current="page">{page.k}</span>
+        </nav>
+        <section className="seo-hero section-pad">
+          <div className="kw-tags">
+            <span className="tag-tile tag-tile-ink">#{String(page.n).padStart(3, '0')}</span>
+            <span className="tag-tile">{clusterMeta[page.c].short}</span>
+          </div>
+          <div className="eyebrow"><span className="eyebrow-line" /> {page.eyebrow}</div>
+          <h1>{page.h}</h1>
+          <p>{page.intro}</p>
+          <div className="hero-actions">
+            <Link className="button button-dark" href="/contact#campaign-brief">{hi ? 'अभियान प्लान करें' : 'Plan your campaign'} <ArrowUpRight size={17} /></Link>
+            <a className="text-link" href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
+          </div>
+        </section>
+        <section className="seo-stats section-pad">
+          {page.stats.map(([value, label, detail]) => <div key={label}><strong>{value}</strong><b>{label}</b><span>{detail}</span></div>)}
+        </section>
+        <section className="seo-body section-pad">
+          <div className="seo-body-main">
+            <div className="eyebrow"><span className="eyebrow-line" /> {hi ? 'पूरी जानकारी' : 'THE PRACTICAL PLAYBOOK'}</div>
+            {page.sections.map((section) => <article key={section.title}><h2>{section.title}</h2><p>{section.text}</p></article>)}
+            <div className="kw-faq">
+              <h2>{hi ? 'अक्सर पूछे जाने वाले सवाल' : 'Frequently asked questions'}</h2>
+              {page.faqs.map((f) => <details className="faq-item" key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>)}
+            </div>
+          </div>
+          <aside className="seo-aside">
+            <span className="aside-kicker">{hi ? 'ब्रांड क्यों चुनते हैं' : 'WHY BRANDS USE MOVING MEDIA'}</span>
+            <h3>“{page.k}”</h3>
+            <ul>{page.bullets.map((b) => <li key={b}><Check size={15} />{b}</li>)}</ul>
+            <a className="button button-dark" href={`https://wa.me/${site.phone.replace('+', '')}?text=${encodeURIComponent(`Hi, I'd like a quote for: ${page.k}`)}`} rel="nofollow noopener" target="_blank"><MessageCircle size={16} /> {hi ? 'व्हाट्सऐप पर रेट पूछें' : 'Get a WhatsApp quote'}</a>
+          </aside>
+        </section>
+      </div>
+      <section className="seo-related section-pad">
+        <div className="eyebrow"><span className="eyebrow-line" /> KEEP EXPLORING</div>
+        <div className="tag-cloud">
+          {page.related.map((r) => <Link className="tag-tile tag-tile-link" href={`/advertising/${r.s}`} key={r.s} lang={r.c === 'hindi' ? 'hi' : 'en'}>{r.k}<ArrowUpRight size={13} /></Link>)}
+          <Link className="tag-tile tag-tile-ink tag-tile-link" href="/advertising">All 100 topics <ArrowUpRight size={13} /></Link>
+        </div>
+      </section>
+      <SiteFooter />
+    </main>
+  )
+}
