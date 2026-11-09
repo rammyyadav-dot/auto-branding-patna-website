@@ -5,8 +5,8 @@ import { ArrowUpRight, Clock3, MapPin, MoveRight, Phone, MessageCircle } from 'l
 import { SiteHeader } from '@/components/site-header'
 
 export const metadata: Metadata = {
-  title: 'Auto Rickshaw Advertising in Patna (2026 Guide): Cost, Routes & ROI | Auto Branding Patna',
-  description: 'Complete guide to auto rickshaw advertising in Patna — pricing from ₹210/month, the best routes (Boring Road, Kankarbagh, Bailey Road), how to estimate ROI, and answers to the most-asked questions. Get a free quote on WhatsApp.',
+  title: 'Auto Rickshaw Advertising Patna: Cost, Routes & ROI',
+  description: 'Auto rickshaw ads in Patna from ₹210/month. Best routes, ROI guide & FAQs. Get a free WhatsApp quote today.',
   alternates: { canonical: '/blog/auto-rickshaw-advertising-patna' },
   openGraph: {
     title: 'Auto Rickshaw Advertising in Patna: A Practical Guide for Growing Brands',
