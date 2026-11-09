@@ -42,7 +42,7 @@ const faqs = [
   { q: 'How many autos do I need for city-wide coverage in Patna?', a: 'Most brands start with 25–50 autos concentrated in two or three zones (for example Boring Road, Kankarbagh and Patna Junction) and scale up once a route is proven. Larger awareness or political campaigns typically run 100+ autos across multiple zones.' },
   { q: 'How long does an auto branding campaign run?', a: 'Campaigns are billed monthly with no long lock-in. Most clients run an initial 2–3 month flight to build recall, then renew on the routes that perform best.' },
   { q: 'Will the branding survive Patna\'s weather?', a: 'Yes. We use outdoor-grade, weather-resistant vinyl and professional application designed to hold up through heat, dust and monsoon conditions without peeling or fading.' },
-  { q: 'Which areas of Patna get the most visibility?', a: 'Boring Road, Bailey Road, Patna Junction, Kankarbagh, Rajendra Nagar and Danapur are our highest-traffic, highest-dwell-time zones, and we route fleets to match your audience — students and families on the west side, traders and commuters in central Patna, dense residential reach on the east side.' },
+  { q: 'Which areas of Patna get the most visibility?', a: 'Boring Road, Bailey Road, Patna Junction, Kankarbagh, Rajendra Nagar and Danapur are our highest-traffic, highest-dwell-time zones, and we route fleets to match your audience — students and families on the west side, traders and commuters in central Patna, dense residential reach on the east side. See individual location pages for zone-level detail.' },
   { q: 'Can auto branding generate leads, not just awareness?', a: 'Yes — adding a clear phone number, WhatsApp link or QR code to the panel turns a passive impression into a trackable action. We recommend one primary message and one call-to-action per creative for the highest response.' },
   { q: 'How quickly can a campaign launch?', a: 'Once creative and routes are approved, installation across an initial fleet typically takes a few working days, with installation photos shared as proof of placement.' },
   { q: 'Is auto branding suitable for small, local businesses?', a: 'Yes — because pricing is per-auto and campaigns can start with a small fleet in a single neighbourhood, auto branding scales down to local shop and clinic budgets as easily as it scales up for citywide launches.' },
@@ -69,7 +69,7 @@ export default function AutoRickshawAdvertisingPatnaPost() {
 
         <section className="post-section">
           <h2>Why auto branding works especially well in Patna</h2>
-          <p>Patna&apos;s traffic is slow-moving and signal-dense, and auto rickshaws are the backbone of everyday commuting rather than an optional ride option. Unlike a highway billboard glimpsed at speed, an auto panel sits at eye level in stop-and-go traffic — at junctions like Patna Junction, Boring Road and Kankarbagh, vehicles spend real time stationary at signals, giving commuters an unhurried window to actually read a message, note a phone number or scan a QR code.</p>
+          <p>Patna&apos;s traffic is slow-moving and signal-dense, and auto rickshaws are the backbone of everyday commuting rather than an optional ride option. Unlike a highway billboard glimpsed at speed, an auto panel sits at eye level in stop-and-go traffic — at junctions like <Link href="/locations/patna-junction">Patna Junction</Link>, <Link href="/locations/boring-road">Boring Road</Link> and <Link href="/locations/kankarbagh">Kankarbagh</Link>, vehicles spend real time stationary at signals, giving commuters an unhurried window to actually read a message, note a phone number or scan a QR code.</p>
           <p>Hoardings are limited to a handful of arterial roads and compete with visual clutter. Digital ads are skippable and increasingly expensive per click. Auto branding closes that gap by physically entering coaching belts, hospital roads, market lanes and residential colonies — the places where everyday buying decisions are actually made.</p>
         </section>
 
@@ -81,7 +81,7 @@ export default function AutoRickshawAdvertisingPatnaPost() {
               <tbody>{formats.map((f) => <tr key={f.name}><td><b>{f.name}</b></td><td>{f.dims}</td><td>{f.price}<span className="table-unit">{f.unit}</span></td><td>{f.fleet}</td><td>{f.best}</td></tr>)}</tbody>
             </table>
           </div>
-          <p>Every format includes design support, printing and professional installation — there are no separate setup fees added later. <Link className="text-link" href="/#calculator">Try the campaign estimator <ArrowUpRight size={14} /></Link></p>
+          <p>Every format includes design support, printing and professional installation — there are no separate setup fees added later. <Link className="text-link" href="/rates">See full rates &amp; packages <ArrowUpRight size={14} /></Link> or <Link className="text-link" href="/#calculator">try the campaign estimator <ArrowUpRight size={14} /></Link></p>
         </section>
 
         <section className="post-section">
@@ -99,7 +99,7 @@ export default function AutoRickshawAdvertisingPatnaPost() {
           <h2>How to estimate ROI for an auto branding campaign</h2>
           <p>Think of each auto as a small, moving, always-on billboard. A simple way to plan budget against outcome:</p>
           <ol className="post-list">
-            <li><b>Impressions.</b> Estimate daily impressions per auto from its route&apos;s traffic density and average signal dwell time — a busy Boring Road or Patna Junction route earns materially more exposure than a quiet residential loop.</li>
+            <li><b>Impressions.</b> Estimate daily impressions per auto from its route&apos;s traffic density and average signal dwell time — a busy <Link href="/locations/boring-road">Boring Road</Link> or <Link href="/locations/patna-junction">Patna Junction</Link> route earns materially more exposure than a quiet residential loop.</li>
             <li><b>Reach over a campaign.</b> Multiply by fleet size and campaign length in days to get total impressions for the flight.</li>
             <li><b>Conservative action rate.</b> Apply a conservative response rate to total impressions to estimate calls, WhatsApp messages or walk-ins — treat any real-world number as an estimate until you have your own campaign data to calibrate against.</li>
             <li><b>Cost per action.</b> Divide total campaign cost by estimated actions, then compare that to your cost-per-lead on other channels you already run.</li>
@@ -165,6 +165,8 @@ export default function AutoRickshawAdvertisingPatnaPost() {
 
         <Link className="text-link" href="/blog">Back to the journal <MoveRight size={16} /></Link>
       </article>
+
+      <section className="seo-related section-pad"><div className="eyebrow"><span className="eyebrow-line" /> KEEP EXPLORING</div><div className="related-grid"><Link href="/services/auto-rickshaw-advertising-patna"><span>Auto rickshaw advertising</span><ArrowUpRight size={17}/></Link><Link href="/services/auto-hood-branding-patna"><span>Hood branding</span><ArrowUpRight size={17}/></Link><Link href="/services/auto-back-panel-advertising-patna"><span>Back-panel advertising</span><ArrowUpRight size={17}/></Link><Link href="/services"><span>All services</span><ArrowUpRight size={17}/></Link><Link href="/rates"><span>Campaign rates</span><ArrowUpRight size={17}/></Link><Link href="/locations"><span>All coverage zones</span><ArrowUpRight size={17}/></Link><Link href="/locations/boring-road"><span>Boring Road</span><ArrowUpRight size={17}/></Link><Link href="/locations/bailey-road"><span>Bailey Road</span><ArrowUpRight size={17}/></Link><Link href="/locations/kankarbagh"><span>Kankarbagh</span><ArrowUpRight size={17}/></Link><Link href="/locations/patna-junction"><span>Patna Junction</span><ArrowUpRight size={17}/></Link><Link href="/locations/rajendra-nagar"><span>Rajendra Nagar</span><ArrowUpRight size={17}/></Link><Link href="/locations/danapur"><span>Danapur</span><ArrowUpRight size={17}/></Link><Link href="/locations/muzaffarpur"><span>Muzaffarpur</span><ArrowUpRight size={17}/></Link><Link href="/locations/gaya"><span>Gaya</span><ArrowUpRight size={17}/></Link><Link href="/locations/bhagalpur"><span>Bhagalpur</span><ArrowUpRight size={17}/></Link><Link href="/about"><span>About Auto Branding Patna</span><ArrowUpRight size={17}/></Link><Link href="/contact"><span>Plan a campaign</span><ArrowUpRight size={17}/></Link><Link href="/blog"><span>Back to the journal</span><ArrowUpRight size={17}/></Link></div></section>
 
       <SiteFooter />
 
