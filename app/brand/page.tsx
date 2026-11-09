@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
@@ -101,6 +102,30 @@ export default function BrandKit() {
         <h2 className="bk-sub">Transit creative rules</h2>
         <div className="seo-columns">{rules.map(([h, t]) => <div key={h}><h3>{h}</h3><p>{t}</p></div>)}</div>
         <p className="guide-lede">Taglines: <b>Your brand. Every road. Every day.</b> · <b>Moving billboards. Neighbourhood connections.</b> · <b lang="hi">आपका ब्रांड। पटना की सड़कों पर।</b></p>
+      </section>
+      <section className="seo-related section-pad">
+        <div className="eyebrow"><span className="eyebrow-line" /> KEEP EXPLORING</div>
+        <div className="related-grid">
+          <Link href="/services/auto-rickshaw-advertising-patna"><span>Auto rickshaw advertising</span><ArrowUpRight size={17}/></Link>
+          <Link href="/services/auto-hood-branding-patna"><span>Hood branding</span><ArrowUpRight size={17}/></Link>
+          <Link href="/services/auto-back-panel-advertising-patna"><span>Back-panel advertising</span><ArrowUpRight size={17}/></Link>
+          <Link href="/services"><span>All services</span><ArrowUpRight size={17}/></Link>
+          <Link href="/rates"><span>Campaign rates</span><ArrowUpRight size={17}/></Link>
+          <Link href="/advertising"><span>100 advertising guides</span><ArrowUpRight size={17}/></Link>
+          <Link href="/blog"><span>Advertising journal</span><ArrowUpRight size={17}/></Link>
+          <Link href="/about"><span>About Auto Branding Patna</span><ArrowUpRight size={17}/></Link>
+          <Link href="/contact"><span>Plan a campaign</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations"><span>All coverage zones</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations/boring-road"><span>Boring Road</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations/bailey-road"><span>Bailey Road</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations/kankarbagh"><span>Kankarbagh</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations/patna-junction"><span>Patna Junction</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations/rajendra-nagar"><span>Rajendra Nagar</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations/danapur"><span>Danapur</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations/muzaffarpur"><span>Muzaffarpur</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations/gaya"><span>Gaya</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations/bhagalpur"><span>Bhagalpur</span><ArrowUpRight size={17}/></Link>
+        </div>
       </section>
       <SiteFooter />
     </main>

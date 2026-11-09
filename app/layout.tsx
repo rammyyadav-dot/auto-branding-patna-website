@@ -40,6 +40,43 @@ export const viewport: Viewport = {
   ],
 }
 
+const localBusinessJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${site.url}/#business`,
+  name: site.name,
+  url: site.url,
+  telephone: site.phone,
+  email: site.email,
+  description: 'Auto rickshaw advertising and transit branding in Patna and Bihar.',
+  image: site.ogImage,
+  priceRange: '₹₹',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Patna',
+    addressLocality: 'Patna',
+    addressRegion: 'Bihar',
+    postalCode: '800001',
+    addressCountry: 'IN',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: 25.5941, longitude: 85.1376 },
+  areaServed: [
+    { '@type': 'City', name: 'Patna' },
+    { '@type': 'City', name: 'Muzaffarpur' },
+    { '@type': 'City', name: 'Gaya' },
+    { '@type': 'City', name: 'Bhagalpur' },
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Auto Rickshaw Advertising Services',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Auto Rickshaw Advertising' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Auto Hood Branding' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Back-Panel Advertising' } },
+    ],
+  },
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -48,6 +85,7 @@ export default function RootLayout({
   return (
     <html lang="en-IN">
       <body className="antialiased">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd).replace(/</g, '\\u003c') }} />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

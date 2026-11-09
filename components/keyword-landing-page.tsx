@@ -96,6 +96,26 @@ export function KeywordLandingPage({ page }: { page: BuiltKeywordPage }) {
           {page.related.map((r) => <Link className="tag-tile tag-tile-link" href={`/advertising/${r.s}`} key={r.s} lang={r.c === 'hindi' ? 'hi' : 'en'}>{r.k}<ArrowUpRight size={13} /></Link>)}
           <Link className="tag-tile tag-tile-ink tag-tile-link" href="/advertising">All 100 topics <ArrowUpRight size={13} /></Link>
         </div>
+        <div className="related-grid" style={{marginTop:'1.5rem'}}>
+          <Link href="/services/auto-rickshaw-advertising-patna"><span>Auto rickshaw advertising</span><ArrowUpRight size={17}/></Link>
+          <Link href="/services/auto-hood-branding-patna"><span>Hood branding</span><ArrowUpRight size={17}/></Link>
+          <Link href="/services/auto-back-panel-advertising-patna"><span>Back-panel advertising</span><ArrowUpRight size={17}/></Link>
+          <Link href="/services"><span>All services</span><ArrowUpRight size={17}/></Link>
+          <Link href="/rates"><span>Campaign rates</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations"><span>All coverage zones</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations/boring-road"><span>Boring Road</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations/bailey-road"><span>Bailey Road</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations/kankarbagh"><span>Kankarbagh</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations/patna-junction"><span>Patna Junction</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations/rajendra-nagar"><span>Rajendra Nagar</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations/danapur"><span>Danapur</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations/muzaffarpur"><span>Muzaffarpur</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations/gaya"><span>Gaya</span><ArrowUpRight size={17}/></Link>
+          <Link href="/locations/bhagalpur"><span>Bhagalpur</span><ArrowUpRight size={17}/></Link>
+          <Link href="/blog"><span>Advertising journal</span><ArrowUpRight size={17}/></Link>
+          <Link href="/about"><span>About Auto Branding Patna</span><ArrowUpRight size={17}/></Link>
+          <Link href="/contact"><span>Plan a campaign</span><ArrowUpRight size={17}/></Link>
+        </div>
       </section>
       <SiteFooter />
     </main>
