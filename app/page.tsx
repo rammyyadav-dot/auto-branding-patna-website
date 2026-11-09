@@ -13,7 +13,14 @@ const services = [
   { number: '03', title: 'E-rickshaw ads', copy: 'Reach local markets and neighbourhoods with flexible electric fleet visibility.', tag: 'Custom fleet plans', accent: 'pink' },
 ]
 
-const locations = ['Boring Road', 'Bailey Road', 'Kankarbagh', 'Rajendra Nagar', 'Patna Junction', 'Danapur']
+const locations = [
+  { name: 'Boring Road', desc: 'Education · lifestyle · retail', href: '/locations/boring-road' },
+  { name: 'Bailey Road', desc: 'Retail · property · institutions', href: '/locations/bailey-road' },
+  { name: 'Kankarbagh', desc: 'Clinics · coaching · residential', href: '/locations/kankarbagh' },
+  { name: 'Rajendra Nagar', desc: 'Healthcare · retail · local services', href: '/locations/rajendra-nagar' },
+  { name: 'Patna Junction', desc: 'Commuters · commercial audience', href: '/locations/patna-junction' },
+  { name: 'Danapur', desc: 'Neighbourhood awareness', href: '/locations/danapur' },
+]
 
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -71,7 +78,7 @@ export default function Page() {
 
       <section id="calculator" className="calculator-section section-pad"><div className="calculator-copy"><div className="eyebrow"><span className="eyebrow-line" /> PLAN YOUR CAMPAIGN</div><h2>Big visibility.<br /><em>Flexible</em> budgets.</h2><p>Get a quick starting point for your campaign. Your final quote will include design, printing, installation and route planning.</p><div className="check-list"><span><Check size={16} /> No hidden commitment</span><span><Check size={16} /> WhatsApp-ready proposal</span><span><Check size={16} /> Local route planning</span></div></div><div className="calculator-card"><div className="calc-header"><span>ILLUSTRATIVE MEDIA ESTIMATOR</span><Sparkles size={16} /></div><label>Branding format<select value={format} onChange={(e) => setFormat(e.target.value)}><option>Rear panel</option><option>Hood branding</option><option>E-rickshaw</option></select></label><label>Number of autos <output>{vehicles} autos</output><input type="range" min="10" max="200" step="10" value={vehicles} onChange={(e) => setVehicles(Number(e.target.value))} /></label><div className="estimate"><span>Starting campaign estimate</span><strong>₹{estimate.toLocaleString('en-IN')}</strong><small>Indicative only · before taxes, permissions & production</small></div><a href="/contact#campaign-brief" className="button button-yellow">Request exact WhatsApp quote <MessageCircle size={17} /></a></div></section>
 
-      <section id="routes" className="routes-section section-pad"><div className="route-heading"><div className="eyebrow"><span className="eyebrow-line" /> WHERE PATNA MOVES</div><h2>Put your message<br />in the <em>right places.</em></h2><p>Plan around the catchments that matter to your business — not a generic citywide promise.</p></div><div className="location-list">{locations.map((location, index) => <a href="/contact#campaign-brief" key={location}><span>0{index + 1}</span><b>{location}</b><small>{['Education · lifestyle · retail', 'Retail · property · institutions', 'Clinics · coaching · residential', 'Healthcare · retail · local services', 'Commuters · commercial audience', 'Neighbourhood awareness'][index]}</small><ArrowUpRight size={18} /></a>)}</div></section>
+      <section id="routes" className="routes-section section-pad"><div className="route-heading"><div className="eyebrow"><span className="eyebrow-line" /> WHERE PATNA MOVES</div><h2>Put your message<br />in the <em>right places.</em></h2><p>Plan around the catchments that matter to your business — not a generic citywide promise.</p></div><div className="location-list">{locations.map((loc, index) => <a href={loc.href} key={loc.href}><span>0{index + 1}</span><b>{loc.name}</b><small>{loc.desc}</small><ArrowUpRight size={18} /></a>)}</div></section>
 
       <section id="work" className="work-section section-pad"><div className="section-intro"><div><div className="eyebrow"><span className="eyebrow-line" /> MADE FOR THE STREET</div><h2>Campaigns that<br /><span>don&apos;t stand still.</span></h2></div><a href="/contact#campaign-brief" className="text-link">See all our work <ArrowUpRight size={16} /></a></div><div className="work-grid"><div className="work-card work-one"><div className="work-overlay"><span>Education</span><h3>Own the morning commute.</h3></div></div><div className="work-card work-two"><div className="work-overlay"><span>Local retail</span><h3>Your next customer is already moving.</h3></div></div><div className="work-card work-three"><div className="work-overlay"><span>Brand launch</span><h3>Make a city-sized impression.</h3></div></div></div></section>
 
