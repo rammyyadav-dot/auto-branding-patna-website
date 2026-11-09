@@ -4,6 +4,18 @@ import { ArrowUpRight } from 'lucide-react'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { clusterMeta, keywordEntries, type Cluster } from '@/lib/keyword-pages'
+import { site } from '@/lib/site'
+
+const advertisingJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': `${site.url}/advertising#page`,
+  name: 'Auto & Bus Advertising Guides — Patna & Bihar',
+  description: '100 focused guides on auto, bus, e-rickshaw and van advertising across Patna and Bihar.',
+  url: `${site.url}/advertising`,
+  publisher: { '@type': 'LocalBusiness', name: site.name, url: site.url, telephone: site.phone },
+  breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: site.url }, { '@type': 'ListItem', position: 2, name: 'Advertising Guides', item: `${site.url}/advertising` }] },
+}
 
 export const metadata: Metadata = {
   title: { absolute: 'Auto & Bus Advertising in Patna & Bihar | 100 Guides' },
@@ -16,6 +28,7 @@ const order: Cluster[] = ['local', 'commercial', 'bihar', 'hindi', 'slogan']
 export default function AdvertisingHub() {
   return (
     <main className="seo-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(advertisingJsonLd).replace(/</g, '\\u003c') }} />
       <SiteHeader />
       <section className="seo-hero section-pad">
         <div className="eyebrow"><span className="eyebrow-line" /> 100 TOPICS · PATNA &amp; BIHAR</div>
