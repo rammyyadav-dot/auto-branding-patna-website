@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { KeywordLandingPage } from '@/components/keyword-landing-page'
 import { buildKeywordPage, keywordBySlug, keywordEntries } from '@/lib/keyword-pages'
+import { pageCopy } from '@/content/advertising'
 import { site } from '@/lib/site'
 
 export const dynamicParams = false
@@ -20,6 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     // Hand-written <title>, used verbatim (no template suffix) to stay ≤ 60 chars.
     title: { absolute: e.t },
     description: e.d,
+    keywords: [e.k, ...pageCopy[e.s].tags],
     alternates: { canonical: path },
     robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large', 'max-video-preview': -1 } },
     openGraph: {

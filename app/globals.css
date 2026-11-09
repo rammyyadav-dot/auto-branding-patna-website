@@ -140,3 +140,53 @@ code { font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fon
 }
 @media (prefers-reduced-motion:reduce) { .tag-tile-link { transition:none; } .tag-tile-link:hover { transform:none; } }
 [lang=hi] .eyebrow, [lang=hi] .aside-kicker { letter-spacing:.02em; }
+
+/* ───── Keyword page themes — one visual identity per keyword cluster ───── */
+.kw-hero-tags { list-style:none; padding:0; margin:0 0 30px; max-width:860px; }
+.kw-hero-tags .tag-tile { background:transparent; border-color:#11111140; font-weight:500; font-size:11px; padding:6px 10px; }
+.kw-cta { display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; background:var(--yellow); padding-top:64px; padding-bottom:64px; }
+.kw-cta h2 { max-width:760px; margin:0; font-size:clamp(30px,4vw,54px); letter-spacing:-.065em; line-height:.98; }
+.kw-cta > div { display:flex; gap:12px; flex-wrap:wrap; }
+.kw-cta .button { margin-top:0; width:auto; }
+.kw-cta-call { background:transparent; border:1.5px solid var(--ink); }
+/* local — gulabi pink (default) */
+/* commercial — chalk ivory with ruled yellow edge: the "price sheet" look */
+.kw-theme-commercial .seo-hero, .kw-theme-commercial .kw-crumbs { background:var(--ivory); }
+.kw-theme-commercial .seo-hero { border-left:10px solid var(--yellow); }
+.kw-theme-commercial .seo-stats strong { color:var(--yellow); }
+/* bihar — road ink hero: the "highway at night" look */
+.kw-theme-bihar .seo-hero, .kw-theme-bihar .kw-crumbs { background:var(--ink); color:#fff; border-color:#2a2a2a; }
+.kw-theme-bihar .seo-hero > p, .kw-theme-bihar .kw-crumbs { color:#b9b9b9; }
+.kw-theme-bihar .kw-crumbs [aria-current] { color:var(--yellow); }
+.kw-theme-bihar .seo-hero h1 { color:var(--yellow); }
+.kw-theme-bihar .seo-hero .eyebrow { color:#bbb; }
+.kw-theme-bihar .kw-hero-tags .tag-tile { color:#fff; border-color:#ffffff40; }
+.kw-theme-bihar .seo-hero .tag-tile:not(.tag-tile-ink) { background:transparent; color:#fff; }
+.kw-theme-bihar .seo-hero .button-dark { background:var(--yellow); color:var(--ink); }
+.kw-theme-bihar .seo-hero .text-link { color:#fff; }
+.kw-theme-bihar .seo-stats { background:#1d1d1d; }
+/* hindi — signal yellow hero: the "local shopfront" look */
+.kw-theme-hindi .seo-hero, .kw-theme-hindi .kw-crumbs { background:var(--yellow); border-color:#e7c23a; }
+.kw-theme-hindi .seo-hero > p { color:#3d3510; }
+.kw-theme-hindi .seo-hero .eyebrow-line { background:var(--ink); }
+.kw-theme-hindi .seo-hero .eyebrow { color:#534500; }
+.kw-theme-hindi .seo-aside { background:var(--pink); }
+.kw-theme-hindi .kw-cta { background:var(--ink); color:#fff; }
+.kw-theme-hindi .kw-cta .button-dark { background:var(--yellow); color:var(--ink); }
+.kw-theme-hindi .kw-cta-call { color:#fff; border-color:#fff; }
+/* slogan — ink hero with oversized quote: the "campaign poster" look */
+.kw-theme-slogan .seo-hero, .kw-theme-slogan .kw-crumbs { background:var(--ink); color:#fff; border-color:#2a2a2a; }
+.kw-theme-slogan .seo-hero { position:relative; overflow:hidden; }
+.kw-theme-slogan .seo-hero h1 { font-style:italic; max-width:980px; }
+.kw-theme-slogan .seo-hero > p, .kw-theme-slogan .kw-crumbs, .kw-theme-slogan .seo-hero .eyebrow { color:#bdbdbd; }
+.kw-theme-slogan .kw-crumbs [aria-current] { color:var(--yellow); }
+.kw-theme-slogan .kw-hero-tags .tag-tile { color:#fff; border-color:#ffffff40; }
+.kw-theme-slogan .seo-hero .tag-tile:not(.tag-tile-ink) { background:transparent; color:#fff; }
+.kw-theme-slogan .seo-hero .button-dark { background:var(--yellow); color:var(--ink); }
+.kw-theme-slogan .seo-hero .text-link { color:#fff; }
+.kw-quote-mark { position:absolute; right:4vw; top:-.12em; font-size:clamp(220px,32vw,480px); line-height:1; font-family:Georgia, serif; color:var(--yellow); opacity:.9; pointer-events:none; }
+.kw-theme-slogan .seo-hero > *:not(.kw-quote-mark) { position:relative; z-index:1; }
+@media (max-width:800px) { .kw-quote-mark { font-size:200px; right:0; opacity:.35; } .kw-theme-commercial .seo-hero { border-left-width:6px; } }
+.kw-page .seo-hero > p { margin-bottom:22px; font-style:normal; }
+.kw-theme-bihar .seo-hero .tag-tile-ink, .kw-theme-slogan .seo-hero .tag-tile-ink { background:var(--yellow); color:var(--ink); border-color:var(--yellow); }
+.kw-theme-bihar .kw-tags .tag-tile:not(.tag-tile-ink), .kw-theme-slogan .kw-tags .tag-tile:not(.tag-tile-ink) { border-color:#ffffff60; }
