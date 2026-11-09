@@ -4,6 +4,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight, MoveRight } from 'lucide-react'
 import { Menu } from 'lucide-react'
+import { site } from '@/lib/site'
+
+const aboutJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'LocalBusiness', '@id': `${site.url}/#business`, name: site.name, url: site.url, telephone: site.phone, email: site.email, address: { '@type': 'PostalAddress', addressLocality: 'Patna', addressRegion: 'Bihar', addressCountry: 'IN' }, founder: { '@type': 'Person', name: 'Ram Kumar', jobTitle: 'CEO & Founder', worksFor: { '@type': 'Organization', name: site.name } } },
+    { '@type': 'Person', '@id': `${site.url}/about#founder`, name: 'Ram Kumar', jobTitle: 'CEO & Founder', worksFor: { '@type': 'Organization', name: site.name, url: site.url }, description: 'MBA graduate with 15+ years in automotive marketing and branding with global brands.' },
+    { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: site.url }, { '@type': 'ListItem', position: 2, name: 'About Us', item: `${site.url}/about` }] },
+  ],
+}
 
 export const metadata: Metadata = {
   title: 'About Us | Ram Kumar & the Auto Branding Patna Team',
@@ -19,7 +29,7 @@ const approach = [
 
 export default function AboutPage() {
   return (
-    <main className="site-shell about-shell">
+    <main className="site-shell about-shell"><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd).replace(/</g, '\\u003c') }} />
       <header className="about-header"><Link className="brand" href="/" aria-label="Auto Branding Patna home"><span className="brand-mark">AB</span><span>AUTO BRANDING <b>PATNA</b></span></Link><nav className="about-desktop-nav" aria-label="Main navigation"><Link href="/services">Services</Link><Link href="/locations">Coverage</Link><Link href="/rates">Pricing</Link><Link href="/about" aria-current="page">About us</Link><Link className="button button-dark" href="/contact#campaign-brief">Let’s talk <ArrowUpRight size={16} /></Link></nav><details className="about-mobile-menu"><summary aria-label="Open navigation"><Menu size={22} /> Menu</summary><nav aria-label="Mobile navigation"><Link href="/">Home</Link><Link href="/services">Services</Link><Link href="/locations">Coverage</Link><Link href="/rates">Pricing</Link><Link href="/about" aria-current="page">About us</Link><Link href="/contact#campaign-brief">Contact our team</Link></nav></details></header>
       <section className="about-hero section-pad">
         <div className="about-hero-copy"><div className="eyebrow"><span className="eyebrow-line" /> ABOUT AUTO BRANDING PATNA</div>
