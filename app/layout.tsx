@@ -1,11 +1,18 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Auto Branding Patna | Your Brand. Every Road. Every Day.',
+  metadataBase: new URL(site.url),
+  title: { default: 'Auto Branding Patna | Your Brand. Every Road. Every Day.', template: '%s | Auto Branding Patna' },
   description: 'Patna\'s specialist auto rickshaw advertising and transit branding partner. Plan moving billboard campaigns across Patna.',
-  generator: 'v0.app',
+  applicationName: site.name,
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large', 'max-video-preview': -1 } },
+  openGraph: { type: 'website', siteName: site.name, locale: site.locale, url: '/', images: [{ url: site.ogImage, width: 1000, height: 1000, alt: site.tagline }] },
+  twitter: { card: 'summary_large_image' },
+  formatDetection: { telephone: true },
+  ...(process.env.GOOGLE_SITE_VERIFICATION ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } } : {}),
   icons: {
     icon: [
       {
@@ -28,8 +35,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   colorScheme: 'light dark',
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
+    { media: '(prefers-color-scheme: light)', color: '#FFD43B' },
+    { media: '(prefers-color-scheme: dark)', color: '#111111' },
   ],
 }
 
@@ -39,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <body className="antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
