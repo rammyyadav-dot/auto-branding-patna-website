@@ -1,3 +1,5 @@
+import { pageCopy } from '@/content/advertising'
+
 /**
  * 100 SEO landing pages — one per target keyword, phrase or campaign slogan.
  *
@@ -152,14 +154,17 @@ export const keywordEntries: KeywordEntry[] = [
 
 /* ───────────────────────── Page builder ───────────────────────── */
 
+
 export type BuiltKeywordPage = KeywordEntry & {
   lang: 'en' | 'hi'
   eyebrow: string
   intro: string
+  tags: string[]
   stats: [string, string, string][]
   sections: { title: string; text: string }[]
   bullets: string[]
   faqs: { q: string; a: string }[]
+  cta: string
   related: KeywordEntry[]
 }
 
@@ -169,82 +174,6 @@ const formatLabel: Record<Format, { en: string; hi: string }> = {
   erickshaw: { en: 'E-rickshaw / Toto', hi: 'ई-रिक्शा / टोटो' },
   mixed: { en: 'Transit media', hi: 'ट्रांज़िट मीडिया' },
   van: { en: 'Mobile ad van', hi: 'मोबाइल ऐड वैन' },
-}
-
-const formatStats: Record<Format, [string, string, string][]> = {
-  auto: [['₹210', 'from / auto / month', 'Back-panel vinyl'], ['₹700', 'from / auto / month', 'Three-panel hood'], ['25', 'auto minimum', 'Focused first test']],
-  bus: [['3', 'formats', 'Back, side & full wrap'], ['60–120s', 'signal dwell', 'Time to read a back panel'], ['Custom', 'per-bus quote', 'Route & panel based']],
-  erickshaw: [['2', 'panels', 'Side + rear vinyl'], ['25', 'vehicle minimum', 'Hyperlocal start'], ['Lane', 'level reach', 'Markets & colonies']],
-  mixed: [['4', 'moving formats', 'Auto · bus · toto · van'], ['₹210', 'entry price', 'Per auto / month'], ['6+', 'Bihar cities', 'On request']],
-  van: [['1-day', 'activations', 'Event & launch bursts'], ['LED', '& audio', 'Attention on arrival'], ['Pair', 'with autos', 'For everyday recall']],
-}
-
-const formatStatsHi: Record<Format, [string, string, string][]> = {
-  auto: [['₹210', 'से / ऑटो / माह', 'बैक-पैनल विनाइल'], ['₹700', 'से / ऑटो / माह', 'तीन-पैनल हुड'], ['25', 'ऑटो से शुरुआत', 'पहला टेस्ट अभियान']],
-  bus: [['3', 'फॉर्मेट', 'बैक, साइड, फुल रैप'], ['60–120 सेकंड', 'सिग्नल पर', 'पढ़ने का समय'], ['कस्टम', 'प्रति बस रेट', 'रूट के अनुसार']],
-  erickshaw: [['2', 'पैनल', 'साइड + बैक'], ['25', 'वाहन से शुरुआत', 'हाइपरलोकल'], ['गली', 'स्तर तक', 'बाज़ार व मोहल्ले']],
-  mixed: [['4', 'फॉर्मेट', 'ऑटो · बस · टोटो · वैन'], ['₹210', 'से शुरू', 'प्रति ऑटो / माह'], ['6+', 'बिहार के शहर', 'अनुरोध पर']],
-  van: [['1 दिन', 'एक्टिवेशन', 'लॉन्च व इवेंट'], ['LED', 'व ऑडियो', 'तुरंत ध्यान'], ['साथ में', 'ऑटो', 'रोज़ की याद']],
-}
-
-function sectionsFor(e: KeywordEntry): { title: string; text: string }[] {
-  const where = e.place ?? (e.c === 'bihar' ? 'Bihar' : 'Patna')
-  const fmt = formatLabel[e.f].en.toLowerCase()
-  if (e.c === 'hindi') {
-    const fmtHi = formatLabel[e.f].hi
-    return [
-      { title: 'यह सेवा क्या है?', text: `${fmtHi} विज्ञापन में आपका ब्रांड रोज़ के रूट पर चलता है — बाज़ार, कोचिंग, अस्पताल और रिहायशी इलाकों से गुज़रते हुए।` },
-      { title: 'खर्चा कैसे तय होता है?', text: 'कुल खर्च में मीडिया (प्रति वाहन/माह), प्रिंटिंग, इंस्टॉलेशन, टैक्स और मॉनिटरिंग शामिल होते हैं। बैक-पैनल ₹210 और हुड ब्रांडिंग ₹700 प्रति ऑटो/माह से शुरू होती है; बस और ई-रिक्शा के रेट रूट और फ्लीट के अनुसार तय होते हैं।' },
-      { title: 'डिज़ाइन कैसा हो?', text: 'एक लोगो, एक छोटी हेडलाइन और एक फ़ोन नंबर या QR कोड। हिंदी-अंग्रेज़ी मिश्रित संदेश पटना में सबसे अच्छा काम करता है। गहरा रंग और साफ़ कंट्रास्ट रखें ताकि सिग्नल पर तुरंत पढ़ा जा सके।' },
-      { title: 'शुरुआत कैसे करें?', text: 'अपना लक्ष्य, इलाका, बजट और अवधि बताइए। हम फ्लीट, रूट और डिज़ाइन का सुझाव देंगे और इंस्टॉलेशन की फ़ोटो के साथ रिपोर्ट भेजेंगे। कॉल या व्हाट्सऐप: +91 91727 12982।' },
-    ]
-  }
-  if (e.c === 'slogan') {
-    return [
-      { title: 'What this promise means', text: `“${e.k}” is the idea behind every campaign we plan across ${where}.` },
-      { title: 'How we deliver it', text: `We match ${fmt} formats to the routes your customers travel, design one clear message in Hindi, English or both, print on outdoor-grade material and share installation evidence for every vehicle.` },
-      { title: 'Use this line in your own campaign', text: 'Taglines like this work best when paired with one offer and one action: a phone number, WhatsApp or a QR code. Keep it short enough to read at a signal — six to eight words is ideal on a rear panel.' },
-      { title: 'What it costs to start', text: 'Indicative auto pricing starts at ₹210 per auto/month for back-panel vinyl and ₹700 for hood branding. Bus, e-rickshaw and van campaigns are quoted per route and fleet. Your proposal separates media, printing, installation, taxes and monitoring.' },
-    ]
-  }
-  if (e.c === 'commercial') {
-    return [
-      { title: 'What you pay for', text: `Every quote we send separates media rental, printing, installation, taxes and monitoring, so you can compare like for like.` },
-      { title: 'What drives the price', text: `Fleet size, campaign duration, panel size and material, route selection and reporting scope. Larger fleets and longer durations lower the effective cost per vehicle; premium materials and full wraps raise it.` },
-      { title: 'A sample budget', text: 'A focused back-panel test of 25 autos for one month starts around ₹5,250 in media (25 × ₹210) before production and taxes. A 50-auto hood campaign starts around ₹35,000 in media. Bus and e-rickshaw campaigns are quoted per route.' },
-      { title: 'How to buy smart', text: 'Ask for installation photos, a vehicle list, the monitoring schedule and a tracked number or QR. Confirm permissions and who arranges them in writing. Start small, measure enquiries, then scale.' },
-    ]
-  }
-  if (e.c === 'bihar') {
-    return [
-      { title: `Why ${where}?`, text: `Transit media works especially well in Bihar’s cities, where daily movement concentrates on a few main roads and markets.` },
-      { title: 'How a Bihar campaign works', text: `We confirm fleet availability in ${where}, recommend routes around your outlets or audience, adapt your creative for local reading habits and coordinate printing and installation with on-ground partners.` },
-      { title: 'Pricing outside Patna', text: 'Rates vary by city, format and fleet availability. Patna indicative pricing (₹210 back panel, ₹700 hood per auto/month) is a useful benchmark; each Bihar city is quoted after confirming local execution.' },
-      { title: 'Proof and reporting', text: 'Every city follows the same standard: vehicle list, installation photos, spot checks and a consolidated report, so a multi-city plan stays comparable and accountable.' },
-    ]
-  }
-  return [
-    { title: `Why ${fmt} advertising in ${where}?`, text: `Moving media repeats your message across the same neighbourhoods every day, building recall that a single fixed hoarding can’t match.` },
-    { title: 'Formats and specifications', text: e.f === 'bus' ? 'Bus campaigns use rear panels, side panels or full wraps. Rear panels win signal dwell time; side panels speak to pedestrians and shopfronts; full wraps remove all visual competition.' : e.f === 'erickshaw' ? 'E-rickshaw campaigns use side and rear vinyl panels sized to the vehicle model. Slow speeds and inner-lane routes give long reading time in markets and colonies.' : 'Auto campaigns use the rear panel (approx. 24×18 in), three-panel hood canopy or side panels. Combine formats when you need both awareness and a direct-response action.' },
-    { title: 'Rates and minimums', text: 'Indicative pricing starts at ₹210 per auto/month for back-panel vinyl (25-auto start) and ₹700 per auto/month for hood branding (50-auto start). Bus, e-rickshaw and van campaigns are quoted per route and fleet.' },
-    { title: 'How we run your campaign', text: 'Brief → route plan → creative → printing → installation → photo verification → monitoring. One team handles each step and shares evidence before your campaign goes live.' },
-  ]
-}
-
-function faqsFor(e: KeywordEntry): { q: string; a: string }[] {
-  if (e.c === 'hindi') {
-    return [
-      { q: `${e.k} — रेट क्या है?`, a: 'बैक-पैनल ₹210 और हुड ब्रांडिंग ₹700 प्रति ऑटो/माह से शुरू। बस और ई-रिक्शा के रेट रूट और फ्लीट के अनुसार। अंतिम कोटेशन में प्रिंटिंग, इंस्टॉलेशन और टैक्स अलग से दिखाए जाते हैं।' },
-      { q: 'कम से कम कितने वाहन चाहिए?', a: 'बैक-पैनल के लिए 25 ऑटो और हुड ब्रांडिंग के लिए 50 ऑटो से शुरुआत की सलाह दी जाती है।' },
-      { q: 'संपर्क कैसे करें?', a: 'कॉल या व्हाट्सऐप करें: +91 91727 12982, या ईमेल: hello@autobrandingpatna.in' },
-    ]
-  }
-  const where = e.place ?? (e.c === 'bihar' ? 'Bihar' : 'Patna')
-  return [
-    { q: `How much does ${formatLabel[e.f].en.toLowerCase()} advertising cost in ${where}?`, a: 'Indicative auto pricing starts at ₹210 per auto/month (back panel) and ₹700 per auto/month (hood). Bus, e-rickshaw and van campaigns are quoted per route and fleet. Final quotes separate media, printing, installation, taxes and monitoring.' },
-    { q: 'What is the minimum campaign size?', a: 'We recommend 25 autos for a back-panel test and 50 autos for hood branding. Bus campaigns can start with a handful of vehicles on a targeted route.' },
-    { q: 'How do I know my ads are actually running?', a: 'You receive a vehicle list, installation photos and a monitoring schedule. Add a campaign-specific phone number or QR code to measure enquiries.' },
-  ]
 }
 
 function relatedFor(e: KeywordEntry): KeywordEntry[] {
@@ -258,26 +187,26 @@ function relatedFor(e: KeywordEntry): KeywordEntry[] {
 }
 
 export function buildKeywordPage(e: KeywordEntry): BuiltKeywordPage {
+  const copy = pageCopy[e.s]
+  if (!copy) throw new Error(`Missing page copy for /advertising/${e.s}`)
   const hi = e.c === 'hindi'
-  const lang = hi ? 'hi' : 'en'
   const eyebrow = hi
     ? `${formatLabel[e.f].hi} · ${e.place ?? 'पटना, बिहार'}`
     : `${formatLabel[e.f].en.toUpperCase()} · ${(e.place ?? (e.c === 'bihar' ? 'Bihar' : 'Patna, Bihar')).toUpperCase()}`
-  const intro = hi
-    ? `${e.a} अपना ब्रीफ़ भेजें — रेट, फ्लीट उपलब्धता और रूट प्लान जानें।`
-    : `${e.a} Share your brief for rates, fleet availability and a route plan.`
   const bullets = hi
     ? ['रूट-आधारित फ्लीट प्लानिंग', 'हिंदी-अंग्रेज़ी क्रिएटिव', 'मौसम-रोधी प्रिंटिंग', 'इंस्टॉलेशन फ़ोटो प्रमाण']
     : ['Route-led fleet planning', 'Bilingual Hindi-English creative', 'Outdoor-grade printing & installation', 'Photo-verified proof of installation']
   return {
     ...e,
-    lang,
+    lang: hi ? 'hi' : 'en',
     eyebrow,
-    intro,
-    stats: hi ? formatStatsHi[e.f] : formatStats[e.f],
-    sections: sectionsFor(e),
+    intro: e.a,
+    tags: copy.tags,
+    stats: copy.stats,
+    sections: copy.sections.map(([title, text]) => ({ title, text })),
     bullets,
-    faqs: faqsFor(e),
+    faqs: copy.faqs.map(([q, a]) => ({ q, a })),
+    cta: copy.cta,
     related: relatedFor(e),
   }
 }

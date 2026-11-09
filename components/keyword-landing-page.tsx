@@ -16,6 +16,7 @@ export function KeywordLandingPage({ page }: { page: BuiltKeywordPage }) {
         '@id': `${url}#service`,
         name: page.h,
         serviceType: page.k,
+        keywords: page.tags.join(', '),
         description: page.d,
         inLanguage: hi ? 'hi-IN' : 'en-IN',
         areaServed: page.c === 'bihar' || page.place?.includes('Bihar') ? { '@type': 'State', name: 'Bihar' } : { '@type': 'City', name: 'Patna' },
@@ -38,7 +39,7 @@ export function KeywordLandingPage({ page }: { page: BuiltKeywordPage }) {
   }
 
   return (
-    <main className="seo-page kw-page">
+    <main className={`seo-page kw-page kw-theme-${page.c}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
       <AgencyHeader />
       <div lang={page.lang}>
@@ -50,9 +51,13 @@ export function KeywordLandingPage({ page }: { page: BuiltKeywordPage }) {
             <span className="tag-tile tag-tile-ink">#{String(page.n).padStart(3, '0')}</span>
             <span className="tag-tile">{clusterMeta[page.c].short}</span>
           </div>
+          {page.c === 'slogan' && <span className="kw-quote-mark" aria-hidden="true">“</span>}
           <div className="eyebrow"><span className="eyebrow-line" /> {page.eyebrow}</div>
           <h1>{page.h}</h1>
           <p>{page.intro}</p>
+          <ul className="tag-cloud kw-hero-tags" aria-label={hi ? 'टैग' : 'Topic tags'}>
+            {page.tags.map((t) => <li className="tag-tile" key={t}>{t}</li>)}
+          </ul>
           <div className="hero-actions">
             <Link className="button button-dark" href="/contact#campaign-brief">{hi ? 'अभियान प्लान करें' : 'Plan your campaign'} <ArrowUpRight size={17} /></Link>
             <a className="text-link" href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
@@ -78,6 +83,13 @@ export function KeywordLandingPage({ page }: { page: BuiltKeywordPage }) {
           </aside>
         </section>
       </div>
+      <section className="kw-cta section-pad" lang={page.lang}>
+        <h2>{page.cta}</h2>
+        <div>
+          <Link className="button button-dark" href="/contact#campaign-brief">{hi ? 'कोटेशन लें' : 'Get your quote'} <ArrowUpRight size={17} /></Link>
+          <a className="button kw-cta-call" href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
+        </div>
+      </section>
       <section className="seo-related section-pad">
         <div className="eyebrow"><span className="eyebrow-line" /> KEEP EXPLORING</div>
         <div className="tag-cloud">
