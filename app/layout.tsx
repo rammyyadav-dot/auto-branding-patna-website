@@ -5,8 +5,8 @@ import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: 'Auto Branding Patna | Your Brand. Every Road. Every Day.', template: '%s | Auto Branding Patna' },
-  description: 'Patna\'s specialist auto rickshaw advertising and transit branding partner. Plan moving billboard campaigns across Patna.',
+  title: { default: 'No.1 Best Auto Advertising Company in Patna', template: '%s | Auto Branding Patna' },
+  description: 'Plan auto rickshaw advertising in Patna with back-panel ads, hood branding and e-rickshaw options. Request a route-based quote at +91 91727 12982.',
   applicationName: site.name,
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large', 'max-video-preview': -1 } },
   openGraph: { type: 'website', siteName: site.name, locale: site.locale, url: '/', images: [{ url: site.ogImage, width: 1000, height: 1000, alt: site.tagline }] },
