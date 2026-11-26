@@ -1,14 +1,12 @@
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { brand } from '@/lib/site'
 
-export const metadata: Metadata = {
-  title: { absolute: 'Brand Kit | Auto Branding Patna' },
-  description: 'The Auto Branding Patna brand kit: logo, colour palette, typography, tag tiles, tone of voice and transit creative rules.',
-  alternates: { canonical: '/brand' },
+export const metadata = {
+  ...pageMetadata('/brand', 'Brand Kit', 'Explore the Auto Branding Patna logo, colour palette, typography and guidelines for transit advertising creative.'),
   robots: { index: false, follow: true },
 }
 

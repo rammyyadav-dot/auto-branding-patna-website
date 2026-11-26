@@ -1,12 +1,10 @@
 import Link from 'next/link'
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/page-metadata'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 
-export const metadata: Metadata = {
-  title: { absolute: 'Meta Tags Google Supports: SEO Guide | Auto Branding Patna' },
-  description: 'What meta tags are, which meta tags and HTML attributes Google supports to control indexing and snippets, and what to check when implementing them.',
-  alternates: { canonical: '/meta-tags' },
+export const metadata = {
+  ...pageMetadata('/meta-tags', 'SEO Meta Tags Reference', 'Reference for canonical links, robots directives and search snippets.'),
   robots: { index: false, follow: true },
 }
 

@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone, Route } from 'lucide-react'
 import CampaignForm from './campaign-form'
 
-const title = 'Contact Auto Branding Patna | Plan Your Auto Ad Campaign'
+const title = 'Request an Auto Advertising Quote in Patna'
 const description = 'Contact Auto Branding Patna for auto rickshaw advertising, hood branding and e-rickshaw campaigns in Patna, Bihar. Call or WhatsApp +91 91727 12982.'
 const contactUrl = `${site.url}/contact`
 export const metadata = pageMetadata('/contact', title, description)

@@ -7,7 +7,7 @@ import { SiteHeader } from '@/components/site-header'
 
 export const metadata = pageMetadata(
   '/blog/auto-rickshaw-advertising-patna',
-  'Patna Auto Advertising Guide: Cost, Routes & ROI',
+  'Patna Auto Ads: Cost, Routes & ROI',
   'Plan an auto advertising campaign in Patna. Compare costs per vehicle, choose commuter routes and track enquiries using campaign-specific links.',
   'article',
 )
