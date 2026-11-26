@@ -1,10 +1,11 @@
+import { stickerBrandingPath } from '@/lib/sticker-branding'
 import type { MetadataRoute } from 'next'
 import { keywordEntries } from '@/lib/keyword-pages'
 import { servicePages } from '@/lib/seo-pages'
 import { site } from '@/lib/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const core = ['/', '/about', '/services', '/locations', '/rates', '/contact', '/blog', '/blog/auto-rickshaw-advertising-patna', '/advertising']
+  const core = [stickerBrandingPath, '/', '/about', '/services', '/locations', '/rates', '/contact', '/blog', '/blog/auto-rickshaw-advertising-patna', '/advertising']
   const locations = ['boring-road', 'bailey-road', 'kankarbagh', 'patna-junction', 'rajendra-nagar', 'danapur', 'muzaffarpur', 'gaya', 'bhagalpur']
   const paths = [
     ...core,
