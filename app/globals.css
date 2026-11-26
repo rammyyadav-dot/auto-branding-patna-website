@@ -190,3 +190,47 @@ code { font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fon
 .kw-page .seo-hero > p { margin-bottom:22px; font-style:normal; }
 .kw-theme-bihar .seo-hero .tag-tile-ink, .kw-theme-slogan .seo-hero .tag-tile-ink { background:var(--yellow); color:var(--ink); border-color:var(--yellow); }
 .kw-theme-bihar .kw-tags .tag-tile:not(.tag-tile-ink), .kw-theme-slogan .kw-tags .tag-tile:not(.tag-tile-ink) { border-color:#ffffff60; }
+
+/* Keep the brighter brand yellow for fills and decorative accents. */
+.hero h1 em,
+.quote-section h2 em,
+.seo-hero h1 em,
+.blog-hero h1 em,
+.post-article-head h1 em {
+  color: #704f00;
+}
+
+.section-intro h2 span,
+.route-heading h2 em,
+.journal-heading h2 span,
+.location-list a > span {
+  color: var(--muted);
+}
+
+.estimate span,
+.estimate small,
+.calculator-card output,
+.location-list a small {
+  color: var(--muted);
+}
+
+.blog-cta em {
+  color: #704f00;
+}
+
+.whatsapp-widget,
+.whatsapp-popup-button {
+  background: #08713a;
+}
+
+.whatsapp-popup-button:hover {
+  background: #075b30;
+}
+
+.whatsapp-widget small {
+  opacity: 1;
+}
+
+.footer-bottom {
+  color: #a3a3a3;
+}
