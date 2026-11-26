@@ -6,6 +6,33 @@ const locations:Record<string, SeoPageData>={ 'boring-road':{eyebrow:'BORING ROA
 'muzaffarpur':{eyebrow:'MUZAFFARPUR · BIHAR',title:'Put your brand on Muzaffarpur\'s streets.',intro:'Reach trading, healthcare, education and residential audiences across one of Bihar\'s most important commercial cities.',description:'Muzaffarpur campaigns connect brands with a dense, mobile population across markets, coaching centres, hospitals and neighbourhood routes.',stats:[['25+','autos','Launch fleet'],['3','audiences','Trader · student · family'],['6','days','Weekly visibility']],sections:[{title:'Why advertise in Muzaffarpur?',text:'Muzaffarpur is Bihar\'s second-largest commercial hub, with strong wholesale markets, a large student population and significant healthcare activity. A moving fleet covers routes that fixed hoardings cannot replicate.'},{title:'Best campaign categories',text:'Wholesale and retail brands, coaching institutes, hospitals, clinics, food businesses and real estate developers can all build recall with route-led auto branding across the city\'s busiest corridors.'},{title:'Plan a Muzaffarpur campaign',text:'Share your objective, preferred zones and campaign duration. We map a fleet across the right routes and provide a clear quote with production, installation and monitoring included.'}],bullets:['Commercial and trading market reach','Coaching and education visibility','Healthcare and clinic awareness','Flexible route-led fleet planning'],related:[{label:'All Bihar locations',href:'/locations'},{label:'Auto rickshaw advertising',href:'/services/auto-rickshaw-advertising-patna'},{label:'Hood branding',href:'/services/auto-hood-branding-patna'},{label:'Back-panel ads',href:'/services/auto-back-panel-advertising-patna'},{label:'Rates',href:'/rates'},{label:'Gaya',href:'/locations/gaya'},{label:'Bhagalpur',href:'/locations/bhagalpur'},{label:'Patna campaigns',href:'/locations/boring-road'}]},
 'gaya':{eyebrow:'GAYA · BIHAR',title:'Reach Gaya\'s audiences on the move.',intro:'Build brand visibility across Gaya\'s pilgrimage corridors, local markets, coaching belts and residential neighbourhoods.',description:'Gaya\'s diverse audiences — pilgrims, students, traders and families — make it a strong city for repeat-exposure transit media.',stats:[['25+','autos','Recommended start'],['3','audiences','Pilgrim · student · local'],['7','days','Route visibility']],sections:[{title:'A city with layered audiences',text:'Gaya draws pilgrims, students and local commerce year-round. Auto branding reaches all three through the same moving fleet — from the main ghats and stations to inner-city coaching lanes and markets.'},{title:'Best campaign categories',text:'Hospitality, travel, food, coaching, healthcare, real estate and retail brands can use Gaya\'s diverse daily movement to build recall across both transient and resident audiences.'},{title:'From quote to campaign',text:'We plan fleet allocation around your audience priority, design for bilingual readability and handle production, installation and verification. One clear proposal, no surprises.'}],bullets:['Pilgrimage corridor visibility','Coaching and student reach','Local market and retail awareness','Bilingual creative support'],related:[{label:'All Bihar locations',href:'/locations'},{label:'Auto rickshaw advertising',href:'/services/auto-rickshaw-advertising-patna'},{label:'Back-panel ads',href:'/services/auto-back-panel-advertising-patna'},{label:'Rates',href:'/rates'},{label:'Muzaffarpur',href:'/locations/muzaffarpur'},{label:'Bhagalpur',href:'/locations/bhagalpur'},{label:'Patna campaigns',href:'/locations/kankarbagh'}]},
 'bhagalpur':{eyebrow:'BHAGALPUR · BIHAR',title:'Own the streets of Bhagalpur.',intro:'Build moving-media visibility across Bhagalpur\'s textile markets, educational belt, healthcare corridors and residential lanes.',description:'Bhagalpur is Bihar\'s silk city — a strong commercial and institutional hub where repeated transit visibility builds brand familiarity fast.',stats:[['25+','autos','Launch fleet'],['3','audiences','Trader · student · family'],['6','days','Weekly visibility']],sections:[{title:'Why Bhagalpur works for auto branding',text:'Bhagalpur combines a historic textile trade, active coaching centres, a growing healthcare sector and dense residential movement. Auto branding lets one fleet serve all four audience types on their everyday routes.'},{title:'Best campaign categories',text:'Textile and retail brands, coaching institutes, hospitals, food businesses, real estate and financial services can all use Bhagalpur\'s daily commuter flows to build local recall.'},{title:'Build a Bhagalpur fleet',text:'We start with the zones that match your audience, map a practical fleet size and produce a clear written proposal. Installation evidence and periodic checks are included in every campaign.'}],bullets:['Textile and trading market reach','Education and coaching visibility','Healthcare corridor awareness','Residential neighbourhood coverage'],related:[{label:'All Bihar locations',href:'/locations'},{label:'Auto rickshaw advertising',href:'/services/auto-rickshaw-advertising-patna'},{label:'Hood branding',href:'/services/auto-hood-branding-patna'},{label:'Rates',href:'/rates'},{label:'Muzaffarpur',href:'/locations/muzaffarpur'},{label:'Gaya',href:'/locations/gaya'},{label:'Patna campaigns',href:'/locations/patna-junction'}]}}
+const campaignExamples: Record<string, SeoPageData["sections"][number]> = {
+  "boring-road": {
+    "title": "Planning a coaching admissions campaign",
+    "text": "Put the course name, application deadline and one enquiry number on the rear panel. Ask for coverage around the coaching and retail stretches your applicants use, then log calls against that campaign number."
+  },
+  "bailey-road": {
+    "title": "Promoting a branch or property visit",
+    "text": "Use a recognisable landmark and a short action, such as booking a site visit. Confirm the target stretch with the fleet team before printing, since a route across Bailey Road can cover several different catchments."
+  },
+  "kankarbagh": {
+    "title": "Advertising a neighbourhood clinic or shop",
+    "text": "Start with nearby shopping streets and residential areas. Include a landmark and appointment number for a clinic campaign, or a simple offer and expiry date for a retail campaign."
+  },
+  "patna-junction": {
+    "title": "Turning commuter visibility into enquiries",
+    "text": "Choose one message for people arriving by rail, such as a hotel location or a retail opening. Ask which streets the available autos cover beyond the station and use a short contact number or a memorable business name."
+  },
+  "rajendra-nagar": {
+    "title": "Planning a local healthcare or retail launch",
+    "text": "Give the branch name, approximate location and a clear next action. Share the streets where customers already shop or commute so the fleet can be planned around the launch area."
+  },
+  "danapur": {
+    "title": "Planning a residential catchment campaign",
+    "text": "Choose the residential pockets you want to reach before picking a fleet size. For a property launch, use one location cue and a phone number for site visits, then track enquiries separately from other Patna routes."
+  }
+}
+
 export const dynamicParams = false
 
 export function generateStaticParams() {
@@ -23,5 +50,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function LocationPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   if (!Object.hasOwn(locations, slug)) notFound()
-  return <SeoLandingPage data={locations[slug]} pageType="location" slug={slug} />
+  const page = locations[slug]
+  const example = campaignExamples[slug]
+  const data = example ? { ...page, sections: [...page.sections, example] } : page
+  return <SeoLandingPage data={data} pageType="location" slug={slug} />
 }

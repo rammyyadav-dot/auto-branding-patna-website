@@ -9,7 +9,7 @@ export function pageMetadata(
 ): Metadata {
   const socialTitle = title.includes(site.name) ? title : `${title} | ${site.name}`
   return {
-    title: { absolute: socialTitle },
+    title: { absolute: socialTitle.length <= 60 ? socialTitle : title },
     description,
     alternates: { canonical: path },
     openGraph: {
@@ -19,7 +19,7 @@ export function pageMetadata(
       description,
       siteName: site.name,
       locale: site.locale,
-      images: [{ url: site.ogImage, width: 1000, height: 1000, alt: 'Auto rickshaw advertising by Auto Branding Patna' }],
+      images: [{ url: site.ogImage, width: 800, height: 800, alt: 'Auto rickshaw advertising by Auto Branding Patna' }],
     },
     twitter: { card: 'summary_large_image', title: socialTitle, description, images: [site.ogImage] },
   }

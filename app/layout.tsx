@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: 'Plan auto rickshaw advertising in Patna with back-panel ads, hood branding and e-rickshaw options. Request a route-based quote at +91 91727 12982.',
   applicationName: site.name,
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large', 'max-video-preview': -1 } },
-  openGraph: { type: 'website', siteName: site.name, locale: site.locale, images: [{ url: site.ogImage, width: 1000, height: 1000, alt: site.tagline }] },
+  openGraph: { type: 'website', siteName: site.name, locale: site.locale, images: [{ url: site.ogImage, width: 800, height: 800, alt: site.tagline }] },
   twitter: { card: 'summary_large_image' },
   formatDetection: { telephone: true },
   ...(process.env.GOOGLE_SITE_VERIFICATION ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } } : {}),

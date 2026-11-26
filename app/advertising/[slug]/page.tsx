@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: e.d,
       siteName: site.name,
       locale: hi ? 'hi_IN' : 'en_IN',
-      images: [{ url: site.ogImage, width: 1000, height: 1000, alt: e.h }],
+      images: [{ url: site.ogImage, width: 800, height: 800, alt: e.h }],
     },
     twitter: { card: 'summary_large_image', title: e.t, description: e.d, images: [site.ogImage] },
     other: { 'content-language': hi ? 'hi-IN' : 'en-IN' },

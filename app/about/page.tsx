@@ -17,7 +17,7 @@ const aboutJsonLd = {
 
 export const metadata = pageMetadata(
   '/about',
-  'Meet Ram Kumar & the Auto Branding Patna Team',
+  'About Auto Branding Patna',
   'Meet founder Ram Kumar and the Patna team behind route planning, campaign creative and installation for local transit advertising.',
 )
 
