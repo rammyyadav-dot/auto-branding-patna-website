@@ -1,5 +1,5 @@
+import { pageMetadata } from '@/lib/page-metadata'
 import { SiteFooter } from '@/components/site-footer'
-import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight, MoveRight } from 'lucide-react'
@@ -15,11 +15,11 @@ const aboutJsonLd = {
   ],
 }
 
-export const metadata: Metadata = {
-  title: 'About Us | Ram Kumar & the Auto Branding Patna Team',
-  description: 'Meet Ram Kumar, CEO & Founder, an MBA graduate with 15+ years in automotive marketing and branding with global brands, and our team of five MBA professionals.',
-  alternates: { canonical: '/about' },
-}
+export const metadata = pageMetadata(
+  '/about',
+  'Meet Ram Kumar & the Auto Branding Patna Team',
+  'Meet founder Ram Kumar and the Patna team behind route planning, campaign creative and installation for local transit advertising.',
+)
 
 const approach = [
   { title: 'Start with your business.', copy: 'We begin with your audience, offer and sales priorities, then shape a campaign around the markets you want to reach.' },

@@ -1,5 +1,5 @@
+import { pageMetadata } from '@/lib/page-metadata'
 import Link from 'next/link'
-import type { Metadata } from 'next'
 import { ArrowUpRight } from 'lucide-react'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
@@ -17,11 +17,11 @@ const advertisingJsonLd = {
   breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: site.url }, { '@type': 'ListItem', position: 2, name: 'Advertising Guides', item: `${site.url}/advertising` }] },
 }
 
-export const metadata: Metadata = {
-  title: { absolute: 'Auto & Bus Advertising in Patna & Bihar | 100 Guides' },
-  description: 'Browse 100 guides on auto rickshaw, bus, e-rickshaw and mobile van advertising in Patna and Bihar — rates, formats, locations, Hindi FAQs and slogans.',
-  alternates: { canonical: '/advertising' },
-}
+export const metadata = pageMetadata(
+  '/advertising',
+  'Transit Advertising Guides for Patna & Bihar',
+  'Explore auto rickshaw, bus, e-rickshaw and mobile van advertising in Patna and Bihar, with guides to costs, formats and local routes.',
+)
 
 const order: Cluster[] = ['local', 'commercial', 'bihar', 'hindi', 'slogan']
 
@@ -32,7 +32,7 @@ export default function AdvertisingHub() {
       <SiteHeader />
       <section className="seo-hero section-pad">
         <div className="eyebrow"><span className="eyebrow-line" /> 100 TOPICS · PATNA &amp; BIHAR</div>
-        <h1>Every question.<br /><em>Every route.</em></h1>
+        <h1>Transit Advertising Guides<br /><em>for Patna &amp; Bihar</em></h1>
         <p>One hundred focused guides on auto, bus, e-rickshaw and van advertising — grouped by what you are searching for. Pick a tag to open its page.</p>
       </section>
       {order.map((c) => {

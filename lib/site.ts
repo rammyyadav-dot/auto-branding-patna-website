@@ -1,7 +1,7 @@
 /** Single source of truth for brand + SEO constants. */
 export const site = {
   name: 'Auto Branding Patna',
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://autobrandingpatna.in',
+  url: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.autobrandingpatna.in').origin,
   phone: '+919172712982',
   phoneDisplay: '+91 91727 12982',
   email: 'hello@autobrandingpatna.in',

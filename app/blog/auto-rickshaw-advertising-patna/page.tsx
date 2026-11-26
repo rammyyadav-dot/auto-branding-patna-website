@@ -1,23 +1,20 @@
+import { site } from '@/lib/site'
+import { pageMetadata } from '@/lib/page-metadata'
 import { SiteFooter } from '@/components/site-footer'
 import Link from 'next/link'
-import type { Metadata } from 'next'
 import { ArrowUpRight, Clock3, MapPin, MoveRight, Phone, MessageCircle } from 'lucide-react'
 import { SiteHeader } from '@/components/site-header'
 
-export const metadata: Metadata = {
-  title: 'Auto Rickshaw Advertising Patna: Cost, Routes & ROI',
-  description: 'Auto rickshaw ads in Patna from ₹210/month. Best routes, ROI guide & FAQs. Get a free WhatsApp quote today.',
-  alternates: { canonical: '/blog/auto-rickshaw-advertising-patna' },
-  openGraph: {
-    title: 'Auto Rickshaw Advertising in Patna: A Practical Guide for Growing Brands',
-    description: 'How local businesses can turn everyday Patna routes into repeated, high-recall brand moments — pricing, routes, ROI and FAQs.',
-    type: 'article',
-  },
-}
+export const metadata = pageMetadata(
+  '/blog/auto-rickshaw-advertising-patna',
+  'Patna Auto Advertising Guide: Cost, Routes & ROI',
+  'Plan an auto advertising campaign in Patna. Compare costs per vehicle, choose commuter routes and track enquiries using campaign-specific links.',
+  'article',
+)
 
 const quickFacts = [
   'Auto rickshaw advertising in Patna uses back-panel stickers, 3-panel hood wraps and e-rickshaw branding for continuous street-level visibility.',
-  'Campaign pricing starts from ₹210 per auto per month for back-panel vinyl, inclusive of printing and professional installation.',
+  'Campaign pricing starts from ₹210 per auto per month for back-panel vinyl, at the indicative rate. Confirm printing and installation in the written quote.',
   'Autos sit in slow, signal-dense traffic for repeated seconds-long dwell windows at junctions like Patna Junction and Boring Road — far longer than a scrolling digital impression.',
   'Hood branding is the highest-impact format for authority and long-campaign recall; back-panel stickers are the most cost-efficient for blanket city coverage.',
   'Best suited for coaching institutes, healthcare, real estate, retail, D2C launches and political or civic campaigns.',
@@ -177,7 +174,7 @@ export default function AutoRickshawAdvertisingPatnaPost() {
         description: 'Complete guide to auto rickshaw advertising in Patna — pricing, routes, ROI and FAQs.',
         author: { '@type': 'Organization', name: 'Auto Branding Patna' },
         publisher: { '@type': 'Organization', name: 'Auto Branding Patna' },
-        mainEntityOfPage: 'https://autobrandingpatna.in/blog/auto-rickshaw-advertising-patna',
+        mainEntityOfPage: `${site.url}/blog/auto-rickshaw-advertising-patna`,
       }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org',

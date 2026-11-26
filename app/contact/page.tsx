@@ -1,17 +1,14 @@
+import { pageMetadata } from '@/lib/page-metadata'
+import { site } from '@/lib/site'
 import { SiteFooter } from '@/components/site-footer'
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone, Route } from 'lucide-react'
 import CampaignForm from './campaign-form'
 
 const title = 'Contact Auto Branding Patna | Plan Your Auto Ad Campaign'
 const description = 'Contact Auto Branding Patna for auto rickshaw advertising, hood branding and e-rickshaw campaigns in Patna, Bihar. Call or WhatsApp +91 91727 12982.'
-export const metadata: Metadata = {
-  title, description,
-  alternates: { canonical: 'https://www.autobrandingpatna.in/contact' },
-  openGraph: { title, description, url: 'https://www.autobrandingpatna.in/contact', siteName: 'Auto Branding Patna', locale: 'en_IN', type: 'website' },
-  twitter: { card: 'summary', title, description },
-}
+const contactUrl = `${site.url}/contact`
+export const metadata = pageMetadata('/contact', title, description)
 const faqs = [
   ['How do I get an auto advertising quote in Patna?', 'Call or WhatsApp +91 91727 12982, or email hello@autobrandingpatna.in. Share your business, preferred branding format, campaign dates, target areas and approximate fleet size or budget so we can prepare a tailored quote.'],
   ['Which areas in Patna can I discuss for my campaign?', 'We plan campaigns around Boring Road, Bailey Road, Kankarbagh, Rajendra Nagar, Patna Junction and Danapur. Tell us where your customers are; route allocation and fleet availability are confirmed with your proposal.'],
@@ -19,9 +16,8 @@ const faqs = [
   ['What should I confirm before booking?', 'Ask for the available fleet, campaign duration, routes, creative requirements, production and installation costs, taxes, permissions and verification plan. Confirm the full scope and final price before approving your campaign.'],
 ]
 const schema = { '@context': 'https://schema.org', '@graph': [
-  { '@type': 'ContactPage', '@id': 'https://www.autobrandingpatna.in/contact#page', url: 'https://www.autobrandingpatna.in/contact', name: title, description, inLanguage: 'en-IN', about: { '@id': 'https://www.autobrandingpatna.in/contact#business' }, breadcrumb: { '@id': 'https://www.autobrandingpatna.in/contact#breadcrumb' } },
-  { '@type': 'Organization', '@id': 'https://www.autobrandingpatna.in/contact#business', name: 'Auto Branding Patna', url: 'https://www.autobrandingpatna.in', telephone: '+919172712982', email: 'hello@autobrandingpatna.in', areaServed: { '@type': 'City', name: 'Patna', containedInPlace: { '@type': 'State', name: 'Bihar' } }, contactPoint: { '@type': 'ContactPoint', telephone: '+919172712982', email: 'hello@autobrandingpatna.in', contactType: 'sales', areaServed: 'Patna, Bihar, India' } },
-  { '@type': 'BreadcrumbList', '@id': 'https://www.autobrandingpatna.in/contact#breadcrumb', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.autobrandingpatna.in' }, { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://www.autobrandingpatna.in/contact' }] },
+  { '@type': 'ContactPage', '@id': `${contactUrl}#page`, url: contactUrl, name: title, description, inLanguage: 'en-IN', about: { '@id': `${site.url}/#business` }, breadcrumb: { '@id': `${contactUrl}#breadcrumb` } },
+  { '@type': 'BreadcrumbList', '@id': `${contactUrl}#breadcrumb`, itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: site.url }, { '@type': 'ListItem', position: 2, name: 'Contact', item: contactUrl }] },
   { '@type': 'FAQPage', mainEntity: faqs.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })) },
 ] }
 
