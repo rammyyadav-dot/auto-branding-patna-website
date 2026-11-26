@@ -5,11 +5,11 @@ import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: 'No.1 Best Auto Advertising Company in Patna', template: '%s | Auto Branding Patna' },
+  title: { default: 'Auto Rickshaw Advertising in Patna', template: '%s | Auto Branding Patna' },
   description: 'Plan auto rickshaw advertising in Patna with back-panel ads, hood branding and e-rickshaw options. Request a route-based quote at +91 91727 12982.',
   applicationName: site.name,
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large', 'max-video-preview': -1 } },
-  openGraph: { type: 'website', siteName: site.name, locale: site.locale, url: '/', images: [{ url: site.ogImage, width: 1000, height: 1000, alt: site.tagline }] },
+  openGraph: { type: 'website', siteName: site.name, locale: site.locale, images: [{ url: site.ogImage, width: 1000, height: 1000, alt: site.tagline }] },
   twitter: { card: 'summary_large_image' },
   formatDetection: { telephone: true },
   ...(process.env.GOOGLE_SITE_VERIFICATION ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } } : {}),
@@ -49,17 +49,14 @@ const localBusinessJsonLd = {
   telephone: site.phone,
   email: site.email,
   description: 'Auto rickshaw advertising and transit branding in Patna and Bihar.',
-  image: site.ogImage,
+  image: new URL(site.ogImage, site.url).href,
   priceRange: '₹₹',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Patna',
     addressLocality: 'Patna',
     addressRegion: 'Bihar',
-    postalCode: '800001',
     addressCountry: 'IN',
   },
-  geo: { '@type': 'GeoCoordinates', latitude: 25.5941, longitude: 85.1376 },
   areaServed: [
     { '@type': 'City', name: 'Patna' },
     { '@type': 'City', name: 'Muzaffarpur' },

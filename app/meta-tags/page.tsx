@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: { absolute: 'Meta Tags Google Supports: SEO Guide | Auto Branding Patna' },
   description: 'What meta tags are, which meta tags and HTML attributes Google supports to control indexing and snippets, and what to check when implementing them.',
   alternates: { canonical: '/meta-tags' },
+  robots: { index: false, follow: true },
 }
 
 const metaTags: [string, string, string][] = [

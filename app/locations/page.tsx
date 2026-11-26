@@ -1,24 +1,21 @@
+import { pageMetadata } from '@/lib/page-metadata'
 import { SiteFooter } from '@/components/site-footer'
 import Link from 'next/link'
 import { ArrowUpRight, MapPin } from 'lucide-react'
 import { SiteHeader } from '@/components/site-header'
 import { site } from '@/lib/site'
-export const metadata = {
-  title: { absolute: 'No.1 Best Auto Advertising Company in Bihar' },
-  description: 'Planning auto rickshaw advertising across Bihar? Check city-wise fleet availability, branding formats and campaign quotes for Patna, Gaya, Muzaffarpur and Bhagalpur.',
-  alternates: { canonical: '/locations' },
-  openGraph: { url: '/locations', images: [site.ogImage] },
-}
-const locationsJsonLd={
-  '@context':'https://schema.org',
-  '@type':'LocalBusiness',
-  '@id':`${site.url}/#business`,
-  name:site.name,url:`${site.url}/locations`,telephone:site.phone,email:site.email,
-  address:{'@type':'PostalAddress',addressLocality:'Patna',addressRegion:'Bihar',addressCountry:'IN'},
-  areaServed:[
-    {'@type':'City',name:'Patna'},{'@type':'City',name:'Muzaffarpur'},
-    {'@type':'City',name:'Gaya'},{'@type':'City',name:'Bhagalpur'},
-  ],
+export const metadata = pageMetadata(
+  '/locations',
+  'Auto Rickshaw Advertising Locations in Bihar',
+  'Explore auto advertising routes in Patna, Gaya, Muzaffarpur and Bhagalpur. Compare local audiences and ask about fleet availability.',
+)
+const locationsJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': `${site.url}/locations#page`,
+  name: 'Auto Rickshaw Advertising Locations in Bihar',
+  url: `${site.url}/locations`,
+  about: { '@id': `${site.url}/#business` },
 }
 const patnaZones=[['Boring Road','Education, lifestyle and retail catchments','/locations/boring-road'],['Bailey Road','Retail, property and institutions','/locations/bailey-road'],['Kankarbagh','Clinics, coaching and residential reach','/locations/kankarbagh'],['Patna Junction','Commuters and commercial audiences','/locations/patna-junction'],['Rajendra Nagar','Healthcare, retail and local services','/locations/rajendra-nagar'],['Danapur','Neighbourhood and residential visibility','/locations/danapur']]
 const biharCities=[['Muzaffarpur','Trading markets, coaching and healthcare corridors','/locations/muzaffarpur'],['Gaya','Pilgrimage routes, coaching and local commerce','/locations/gaya'],['Bhagalpur','Textile markets, education and residential reach','/locations/bhagalpur']]
