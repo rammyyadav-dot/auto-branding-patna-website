@@ -66,10 +66,11 @@ const localBusinessJsonLd = {
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Auto Rickshaw Advertising Services',
+    url: `${site.url}/services`,
     itemListElement: [
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Auto Rickshaw Advertising' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Auto Hood Branding' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Back-Panel Advertising' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Auto Rickshaw Advertising', url: `${site.url}/services/auto-rickshaw-advertising-patna` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Auto Hood Branding', url: `${site.url}/services/auto-hood-branding-patna` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Back-Panel Advertising', url: `${site.url}/services/auto-back-panel-advertising-patna` } },
     ],
   },
 }
