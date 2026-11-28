@@ -278,3 +278,26 @@ code { font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fon
   .route-controls, .route-grid { grid-template-columns: 1fr; }
   .abp-home .calculator-card { padding-inline: 16px; }
 }
+
+.abp-home .service-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--ink);
+  color: #fff;
+}
+.abp-home .service-card-photo {
+  z-index: -2;
+  object-fit: cover;
+  object-position: center 43%;
+}
+.abp-home .service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgb(0 0 0 / 68%), rgb(0 0 0 / 12%) 28%, rgb(0 0 0 / 78%) 52%, rgb(0 0 0 / 94%));
+}
+.abp-home .service-card .card-top span,
+.abp-home .service-card p { opacity: 1; }
+.abp-home .service-card .service-tag { color: var(--yellow); }

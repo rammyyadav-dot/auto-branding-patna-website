@@ -13,9 +13,9 @@ import { ArrowUpRight, ChevronDown, MapPin, Menu, MessageCircle, MoveRight, Phon
 const imageUrl = '/auto.webp'
 
 const services = [
-  { number: '01', title: 'Back panel ads', copy: 'Give people one thing to remember, such as an admissions deadline, an opening date or a nearby landmark.', tag: 'View back-panel options', accent: 'yellow', href: '/services/auto-back-panel-advertising-patna' },
-  { number: '02', title: 'Hood branding', copy: 'Give your logo and product more room with a bold visual and a short line people can read as the vehicle passes.', tag: 'View hood options', accent: 'black', href: '/services/auto-hood-branding-patna' },
-  { number: '03', title: 'E-rickshaw ads', copy: 'Promote a shop, clinic or local service. Ask which vehicles and panels are available for your dates.', tag: 'Custom fleet plans', accent: 'pink', href: '/advertising/e-rickshaw-advertising-patna' },
+  { number: '01', image: '/service-back-panel.webp', title: 'Back panel ads', copy: 'Give people one thing to remember, such as an admissions deadline, an opening date or a nearby landmark.', tag: 'View back-panel options', accent: 'yellow', href: '/services/auto-back-panel-advertising-patna' },
+  { number: '02', image: '/service-hood.webp', title: 'Hood branding', copy: 'Give your logo and product more room with a bold visual and a short line people can read as the vehicle passes.', tag: 'View hood options', accent: 'black', href: '/services/auto-hood-branding-patna' },
+  { number: '03', image: '/service-e-rickshaw.webp', title: 'E-rickshaw ads', copy: 'Promote a shop, clinic or local service. Ask which vehicles and panels are available for your dates.', tag: 'Custom fleet plans', accent: 'pink', href: '/advertising/e-rickshaw-advertising-patna' },
 ]
 
 const routeFilters = ['All routes', 'Patna commuters', 'Patna retail', 'Patna education & health', 'Other Bihar cities'] as const
@@ -108,7 +108,7 @@ export default function Page() {
 
       <section className="stats-band"><div><strong>500+</strong><span>autos on the road</span></div><div><strong>6</strong><span>high-impact zones</span></div><div><strong>24/7</strong><span>everyday visibility</span></div><div><strong>01</strong><span>simple campaign partner</span></div></section>
 
-      <section id="services" className="section-pad service-section"><div className="section-intro"><div><div className="eyebrow"><span className="eyebrow-line" /> CHOOSE YOUR CANVAS</div><h2>Auto Branding <span>in Patna</span></h2></div><p>Compare sticker, rear-panel and canopy placements before you choose a fleet. <Link className="text-link" href="/patna">Explore Patna formats and routes <ArrowUpRight size={15} /></Link></p></div><div className="service-grid">{services.map((service) => <Link href={service.href} className={`service-card ${service.accent}`} key={service.number}><div className="card-top"><span>{service.number}</span><ArrowUpRight size={20} /></div><div><h3>{service.title}</h3><p>{service.copy}</p><span className="service-tag">{service.tag}</span></div></Link>)}</div></section>
+      <section id="services" className="section-pad service-section"><div className="section-intro"><div><div className="eyebrow"><span className="eyebrow-line" /> CHOOSE YOUR CANVAS</div><h2>Auto Branding <span>in Patna</span></h2></div><p>Compare sticker, rear-panel and canopy placements before you choose a fleet. <Link className="text-link" href="/patna">Explore Patna formats and routes <ArrowUpRight size={15} /></Link></p></div><div className="service-grid">{services.map((service) => <Link href={service.href} className={`service-card ${service.accent}`} key={service.number}><Image className="service-card-photo" src={service.image} alt="" fill sizes="(max-width: 800px) 90vw, 27vw" loading="lazy" /><div className="card-top"><span>{service.number}</span><ArrowUpRight size={20} /></div><div><h3>{service.title}</h3><p>{service.copy}</p><span className="service-tag">{service.tag}</span></div></Link>)}</div></section>
 
       <section id="routes" className="routes-section section-pad">
         <div className="route-heading">
