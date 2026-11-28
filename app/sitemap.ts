@@ -1,4 +1,5 @@
 import { stickerBrandingPath } from '@/lib/sticker-branding'
+import { campaignHubKeys, campaignTopicPath, newCampaignTopics } from '@/lib/campaign-topics'
 import type { MetadataRoute } from 'next'
 import { keywordEntries } from '@/lib/keyword-pages'
 import { servicePages } from '@/lib/seo-pages'
@@ -9,6 +10,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const locations = ['boring-road', 'bailey-road', 'kankarbagh', 'patna-junction', 'rajendra-nagar', 'danapur', 'muzaffarpur', 'gaya', 'bhagalpur']
   const paths = [
     ...core,
+    ...campaignHubKeys.map((hub) => `/${hub}`),
+    ...newCampaignTopics.map(campaignTopicPath),
     ...Object.keys(servicePages).map((slug) => `/services/${slug}`),
     ...locations.map((slug) => `/locations/${slug}`),
     ...keywordEntries.map(({ s }) => `/advertising/${s}`),
