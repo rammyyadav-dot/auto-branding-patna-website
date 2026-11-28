@@ -94,13 +94,21 @@ export default function PatnaStickerBrandingPage() {
       <section id="specifications" className={styles.section}><div className={styles.wrap}>
         <h2>Sticker specifications and artwork checklist</h2>
         <div className={styles.grid}>
-          <article><h3>Production brief</h3><ul><li>Finished size: 24 × 6 inches, landscape.</li><li>Confirm the printable area, sticker material and placement on the selected autos.</li><li>Confirm outdoor finish, lamination, bleed and artwork file requirements before print.</li></ul></article>
+          <article><h3>Production brief</h3><ul><li>Finished size: 24 × 6 inches, landscape.</li><li>Review a photo of the proposed mounting surface. Check that the sticker fits without covering registration plates, lights or required markings.</li><li>Confirm outdoor finish, lamination, bleed and artwork file requirements before print.</li></ul></article>
           <article><h3>Artwork for a quick read</h3><ul><li>Use a short headline with high-contrast type.</li><li>Leave space around the logo, contact and edges.</li><li>Review a size proof. Test any QR code from a realistic viewing distance.</li></ul></article>
         </div>
       </div></section>
       <section className={styles.section}><div className={styles.wrap}>
         <h2>How your Patna campaign works</h2>
         <ol className={styles.steps}>{steps.map(([name, detail]) => <li key={name}><h3>{name}</h3><p>{detail}</p></li>)}</ol>
+      </div></section>
+      <section className={styles.section}><div className={styles.wrap}>
+        <h2>What installation verification should show</h2>
+        <p>Agree on these fields before booking. This checklist is a sample reporting format for your brief.</p>
+        <div className={styles.grid}>
+          <article><h3>Vehicle and installation record</h3><p>Record the fleet reference, format and installation date. Ask for a wide photo showing placement and a close photo showing print condition and legibility.</p></article>
+          <article><h3>Coverage and exceptions</h3><p>Record the agreed operating area and flag any pending installation, damaged sticker or vehicle substitution. Review enquiry counts separately using your campaign code or dedicated number.</p></article>
+        </div>
       </div></section>
       <section id="compare" className={styles.section}><div className={styles.wrap}>
         <h2>Compare auto branding formats in Patna</h2>
