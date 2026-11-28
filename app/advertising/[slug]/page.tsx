@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     alternates: { canonical: path },
     robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large', 'max-video-preview': -1 } },
     openGraph: {
-      type: 'website',
+      type: e.c === 'slogan' || e.s === 'auto-rickshaw-advertising-in-patna' ? 'article' : 'website',
       url: path,
       title: e.t,
       description: e.d,

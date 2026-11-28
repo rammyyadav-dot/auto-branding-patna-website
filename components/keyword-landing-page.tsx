@@ -8,10 +8,19 @@ import { site } from '@/lib/site'
 export function KeywordLandingPage({ page }: { page: BuiltKeywordPage }) {
   const hi = page.lang === 'hi'
   const url = `${site.url}/advertising/${page.s}`
+  const editorial = page.c === 'slogan' || page.s === 'auto-rickshaw-advertising-in-patna'
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
-      {
+      editorial ? {
+        '@type': 'Article',
+        '@id': `${url}#article`,
+        headline: page.h,
+        description: page.d,
+        inLanguage: hi ? 'hi-IN' : 'en-IN',
+        mainEntityOfPage: url,
+        publisher: { '@id': `${site.url}/#business` },
+      } : {
         '@type': 'Service',
         '@id': `${url}#service`,
         name: page.h,
