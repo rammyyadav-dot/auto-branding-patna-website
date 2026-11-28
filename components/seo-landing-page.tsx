@@ -10,12 +10,20 @@ const provider = { '@type': 'LocalBusiness', name: site.name, telephone: site.ph
 
 function buildJsonLd(data: SeoPageData, pageType: 'service' | 'location', url: string) {
   const [name, place] = data.eyebrow.split(' · ')
-  const isState = place === 'BIHAR' || place?.includes('BIHAR')
-  const areaServed = isState ? { '@type': 'State', name: 'Bihar' } : { '@type': 'City', name: place ?? 'Patna' }
+  const placeName = name.toLowerCase().replace(/\b\w/g, (letter) => letter.toUpperCase())
+  const areaServed = pageType === 'service'
+    ? { '@type': 'City', name: 'Patna' }
+    : place === 'BIHAR'
+      ? { '@type': 'City', name: placeName }
+      : {
+          '@type': 'Place',
+          name: placeName,
+          containedInPlace: { '@type': 'City', name: 'Patna' },
+        }
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'Service', '@id': `${url}#service`, name: data.title, serviceType: name, description: data.description, inLanguage: 'en-IN', areaServed, provider, url },
+      { '@type': 'Service', '@id': `${url}#service`, name: data.title, serviceType: pageType === 'service' ? name : 'Auto rickshaw advertising', description: data.description, inLanguage: 'en-IN', areaServed, provider, url },
       { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: site.url }, { '@type': 'ListItem', position: 2, name: pageType === 'service' ? 'Services' : 'Locations', item: `${site.url}/${pageType === 'service' ? 'services' : 'locations'}` }, { '@type': 'ListItem', position: 3, name: data.title, item: url }] },
     ],
   }
