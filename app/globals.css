@@ -234,3 +234,47 @@ code { font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fon
 .footer-bottom {
   color: #a3a3a3;
 }
+
+/* Homepage campaign planning */
+.abp-home .hero { padding-block: clamp(28px, 4vw, 64px); }
+.abp-home .hero h1 { margin-block: 12px; }
+.abp-home .hero-text { margin-block: 12px 18px; }
+.abp-home .hero-booking { min-height: 48px; }
+.abp-home .hero-photo { object-fit: cover; }
+.hero-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 18px 0 0; }
+.hero-metrics div { border-top: 1px solid var(--line); padding-top: 8px; }
+.hero-metrics dt { color: var(--muted); font-size: .75rem; }
+.hero-metrics dd { margin: 3px 0 0; font-weight: 700; font-size: .875rem; }
+.hero-metrics a, .route-grid a { text-decoration: underline; text-underline-offset: .16em; }
+.route-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.route-controls label, .calculator-card label { font-weight: 600; }
+.route-controls input, .route-controls select, .calculator-card input[type="number"] { display: block; min-height: 48px; width: 100%; margin-top: 5px; padding: 8px 10px; border: 1px solid var(--line); background: white; color: var(--ink); font: inherit; }
+.route-count { margin-block: 10px; min-height: 1.5em; font-size: .875rem; }
+.route-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: start; gap: 8px; block-size: 30rem; overflow: auto; scrollbar-gutter: stable; padding: 3px; }
+.route-grid article { display: grid; align-content: start; gap: 6px; padding: 14px; background: white; border: 1px solid var(--line); }
+.route-grid h3, .route-grid p { margin: 0; }
+.route-grid h3 { font-size: 1rem; }
+.route-grid p, .route-grid small { font-size: .8125rem; }
+.route-grid small { color: var(--muted); }
+.route-grid a { display: flex; align-items: center; gap: 6px; min-height: 44px; font-size: .875rem; font-weight: 700; }
+.abp-home .calculator-copy .text-link { color: var(--yellow); }
+.duration-picker { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; border: 0; padding: 0; margin: 12px 0; }
+.duration-picker legend { font-weight: 700; margin-bottom: 6px; }
+.abp-home .duration-picker label { display: flex; flex-direction: row; align-items: flex-start; gap: 5px; min-height: 56px; margin: 0; padding: 8px 5px; border: 1px solid var(--line); cursor: pointer; }
+.duration-picker label:has(:checked) { background: var(--yellow); border-color: var(--ink); }
+.duration-picker input[type="radio"] { accent-color: var(--ink); width: auto; margin-top: 3px; }
+.duration-picker small { display: block; font-size: .65rem; line-height: 1.2; }
+.abp-home .estimate strong, .impression-cost output { font-variant-numeric: tabular-nums; }
+.impression-cost { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 10px; margin: 8px 0; min-height: 2.75em; font-size: .875rem; }
+.abp-home .work-card { background-image: none; }
+.abp-home .work-card img { object-fit: cover; }
+@media (max-width: 800px) {
+  .abp-home .hero { gap: 24px; }
+  .abp-home .hero h1 { font-size: clamp(2.25rem, 9.8vw, 3.6rem); }
+  .abp-home .hero-image-frame { height: clamp(220px, 65vw, 360px); }
+  .abp-home .routes-section { gap: 22px; }
+}
+@media (max-width: 450px) {
+  .route-controls, .route-grid { grid-template-columns: 1fr; }
+  .abp-home .calculator-card { padding-inline: 16px; }
+}
