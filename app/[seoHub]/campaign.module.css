@@ -1,0 +1,28 @@
+.main { background: var(--ivory); color: var(--ink); }
+.hero, .section, .hubs { padding-inline: clamp(20px, 8vw, 120px); }
+.hero { background: var(--ink); color: var(--white); padding-block: clamp(32px, 5vw, 72px); }
+.hero nav { color: #ddd; font-size: .875rem; }
+.hero nav a, .card a { text-decoration: underline; text-underline-offset: .15em; }
+.hero h1 { max-width: 18ch; font-size: clamp(2.35rem, 6vw, 5rem); line-height: 1.04; margin: 18px 0 14px; text-wrap: balance; }
+.hero p { max-width: 64ch; color: #ddd; line-height: 1.6; margin-bottom: 18px; }
+.hero :global(.button) { min-height: 48px; }
+.hubs { display: flex; flex-wrap: wrap; gap: 8px; padding-block: 18px; border-bottom: 1px solid var(--line); }
+.hubs a { display: inline-flex; min-height: 44px; align-items: center; border: 1px solid var(--line); background: white; padding: 6px 12px; }
+.hubs a[aria-current="page"] { background: var(--yellow); border-color: var(--ink); font-weight: 700; }
+.section { padding-block: clamp(26px, 5vw, 64px); }
+.section + .section { border-top: 1px solid var(--line); }
+.section h2 { font-size: clamp(1.6rem, 3.6vw, 2.9rem); margin-bottom: 18px; line-height: 1.15; }
+.grid, .detail { display: grid; gap: 14px; align-items: start; }
+.grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: 18px; }
+.detail { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 26px; }
+.card { background: white; border: 1px solid var(--line); padding: 16px; height: 100%; }
+.card h3 { font-weight: 750; line-height: 1.3; }
+.card h3 a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; }
+.card svg { flex-shrink: 0; }
+.card p, .detail p { margin: 8px 0 14px; line-height: 1.6; color: var(--muted); }
+.facts { margin-block: 10px; }
+@media (max-width: 850px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 580px) { .grid, .detail { grid-template-columns: 1fr; } }
+.facts { width: 100%; border-collapse: collapse; font-size: .875rem; text-align: left; }
+.facts caption { text-align: left; margin-bottom: 8px; color: var(--muted); }
+.facts th, .facts td { border-top: 1px solid var(--line); padding: 8px 6px; vertical-align: top; }

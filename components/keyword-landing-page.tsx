@@ -1,3 +1,4 @@
+import { CampaignTopicNote } from '@/components/campaign-topic-note'
 import Link from 'next/link'
 import { ArrowUpRight, Check, MessageCircle } from 'lucide-react'
 import { AgencyHeader } from '@/components/agency-header'
@@ -126,6 +127,7 @@ export function KeywordLandingPage({ page }: { page: BuiltKeywordPage }) {
           <Link href="/contact"><span>Plan a campaign</span><ArrowUpRight size={17}/></Link>
         </div>
       </section>
+      <CampaignTopicNote path={`/advertising/${page.s}`} />
       <SiteFooter />
     </main>
   )
